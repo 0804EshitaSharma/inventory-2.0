@@ -1,0 +1,31 @@
+/* .input_field{
+  
+    border: none;
+        width: 100%;
+        letter-spacing: 1px;
+        padding: 10px;
+        font-size: 16px;
+    
+        margin-bottom: 30px;
+        border-bottom: 1px solid #fff;
+        background: transparent;
+        outline: none;
+    
+}
+.input_field_label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    letter-spacing: 1px;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    outline: none;
+    transition: 0.5s;
+
+} */
+
+.error_message{
+    color: red;
+    font-size: 0.9r;
+}

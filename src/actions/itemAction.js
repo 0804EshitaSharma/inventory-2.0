@@ -1,4 +1,4 @@
-import ActionTypes from "./constants/ActionTypes";
+import ActionTypes from '../constants/actionTypes';
 
 export const viewItems = (items) => {
   return {
@@ -6,16 +6,27 @@ export const viewItems = (items) => {
     payload:items
   };
 };
+export const viewItem = (name) => {
+  return {
+    type: ActionTypes.VIEW_ITEM,
+    payload: name,
+  };
+};
 
-  export const deleteItem = (item) => {
+  export const deleteItem = (name) => {
     return {
         type:ActionTypes.DELETE_ITEM,
-        payload:item
+        payload:name
     };
   };
   export const addItem = (item) => {
     return {
         type:ActionTypes.ADD_ITEM,
         payload:item
+    };
+  };
+  export const deleteItems= () => {
+    return {
+        type:ActionTypes.DELETE_ITEMS
     };
   };

@@ -1,16 +1,19 @@
-.item-form{
+.item-form-container {
+    max-width: 500px;
+    border: 2px solid gray;
+    border-radius: 4px;
+    background-color: azure;
+    /* margin: auto auto; */
     display: flex;
     flex-direction: column;
-    /* max-width: 100px; */
+
     padding: 20px;
 
-   
 }
-.item-form-container{
-     max-width: 500px;
-    border:2px solid gray;
-    border-radius: 4px;
-    /* margin: auto auto; */
- 
 
+.button_container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
 }

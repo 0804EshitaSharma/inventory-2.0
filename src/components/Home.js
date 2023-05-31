@@ -2,7 +2,10 @@ import React, { useEffect } from "react";
 import Item from "./Item.js";
 import { useSelector, useDispatch } from "react-redux";
 import {viewItems} from '../actions/itemAction.js';
+import { deleteItems } from "../actions/itemAction.js";
 import Navbar from "./Navbar.js";
+import Button from "./Button";
+
 function Home() {
   const products = useSelector((state) => state.items.items);
   console.log(products);
@@ -13,7 +16,7 @@ function Home() {
 
     dispatch(viewItems(JSON.parse(data)));
   };
-  const deleteItems=()=>{
+  const deleteAllItems=()=>{
     dispatch(deleteItems());
   };
 
@@ -33,8 +36,8 @@ function Home() {
   ));
   return (
     <div className="home-container">
-      {/* <button onClick={deleteItems}>Delete</button> */}
       <Navbar />
+      <Button label="Delete All" event={deleteAllItems} />
       {listItems}
     </div>
   );

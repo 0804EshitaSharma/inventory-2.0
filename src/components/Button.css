@@ -1,0 +1,9 @@
+.custom_button{
+    padding: 0.5rem;
+    border: none;
+    font-size: 1.2rem;
+    color: white;
+    background-color:black;
+    min-width: 100px;
+    margin-top: 10px;
+}
