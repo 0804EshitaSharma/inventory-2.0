@@ -1,0 +1,16 @@
+.item-form{
+    display: flex;
+    flex-direction: column;
+    /* max-width: 100px; */
+    padding: 20px;
+
+   
+}
+.item-form-container{
+     max-width: 500px;
+    border:2px solid gray;
+    border-radius: 4px;
+    /* margin: auto auto; */
+ 
+
+}
