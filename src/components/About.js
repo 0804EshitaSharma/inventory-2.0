@@ -1,9 +1,12 @@
-import React from 'react'
-
+import React from "react";
+import Navbar from "./Navbar.js";
 function About() {
   return (
-    <div>About</div>
-  )
+    <div>
+      <Navbar />
+      About
+    </div>
+  );
 }
 
-export default About
+export default About;
