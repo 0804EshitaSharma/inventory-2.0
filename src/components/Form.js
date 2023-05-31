@@ -1,108 +1,107 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Form.css";
 import { useDispatch } from "react-redux";
 import Navbar from "./Navbar.js";
-function Form() {
-  const [formData, setFormData] = useState({
-    name: "",
-    price: "",
-    description: "",
-    url: "",
+import FormInput from "./FormInput";
+import FormTextArea from "./FormTextArea";
+import Button from "./Button";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { addItem } from "../actions/itemAction.js";
 
-    // Add additional form fields as needed
+function Form() {
+  const schema = yup.object({
+    name: yup.string().required("Item name is required"),
+    price: yup.string().required("Item price is required"),
+    description: yup.string().required("Item description is required"),
+    url: yup.string().required("Item image is required"),
+  });
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
   });
   const dispatch = useDispatch();
 
   // Handle form submission
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Perform form submission logic here
-    console.log(formData);
+  const formSubmit = (event) => {
+    console.log(event);
     dispatch(
-      addItem({
-        item: { formData },
-      })
+      addItem(event)
     );
   };
 
-  // Handle form input changes
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
+  // // Handle form input changes
+  // const handleChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setFormData((prevFormData) => ({
+  //     ...prevFormData,
+  //     [name]: value,
+  //   }));
+  // };
 
-  // Handle form input changes
-  const clearForm = (event) => {
-    setFormData(() => ({
-      itemName: "",
-      itemPrice: "",
-      itemDescription: "",
-      itemImage: "",
-      itemCategory: "",
-    }));
-  };
+  // // Handle form input changes
+  // const clearForm = (event) => {
+  //   setFormData(() => ({
+  //     itemName: "",
+  //     itemPrice: "",
+  //     itemDescription: "",
+  //     itemImage: "",
+  //     itemCategory: "",
+  //   }));
+  // };
 
   const addItem = () => {};
 
   return (
     <div>
       <Navbar />
-      <form className="item-form-container" onSubmit={handleSubmit}>
-        <div className="item-form">
-          <label>Item Name:</label>
-          <input
+      <form className="item-form-container" onSubmit={handleSubmit(formSubmit)}>
+        <div>
+          <FormInput
             name="name"
-            value={formData.itemName}
-            onChange={handleChange}
+            id="name"
             type="text"
-            required
-            autoComplete="off"
-          ></input>
-          <label>Item Price:</label>
-          <input
+            placeholder="Item Name"
+            label="Item Name:"
+            register={{ ...register("name") }}
+            errorMessage={errors.itemName?.message}
+          />
+          <FormInput
             name="price"
-            value={formData.itemPrice}
-            onChange={handleChange}
+            id="price"
             type="number"
-            required
-          ></input>
-          <label>Item Description:</label>
-          <textarea
+            placeholder="Item Price"
+            label="Item Price:"
+            register={{ ...register("price") }}
+            errorMessage={errors.itemPrice?.message}
+          />
+          <FormTextArea
             name="description"
-            value={formData.itemDescription}
-            onChange={handleChange}
-            required
-          ></textarea>
-          <label>Item Image:</label>
-          <input
+            id="description"
+            placeholder="Item Description"
+            label="Item Description:"
+            rows="5"
+            cols="50"
+            register={{ ...register("description") }}
+            errorMessage={errors.itemDescription?.message}
+          />
+          <FormInput
             name="url"
-            value={formData.itemImage}
-            onChange={handleChange}
+            id="url"
             type="file"
-            required
-          ></input>
-          <label>Item Category:</label>
-          {/* <select
-          name="itemCategory"
-          value={formData.itemCategory}
-          onChange={handleChange}
-          required
-        >
-          <option>Choose one----</option>
-          <option>Groceries</option>
-          <option>Electronics</option>
-          <option>Apparel</option>
-          <option>Furniture</option>
-        </select> */}
-          <button type="submit" onClick={addItem}>
-            Add
-          </button>
-          <button type="reset" onClick={clearForm}>
-            Clear
-          </button>
+            placeholder="Item Image"
+            label="Item Image:"
+            register={{ ...register("url") }}
+            errorMessage={errors.itemUrl?.message}
+          />
+          <div className="button_container">
+            <Button type="submit" label="Add" />
+            <Button type="reset" label="Clear" />
+          </div>
         </div>
       </form>
     </div>
