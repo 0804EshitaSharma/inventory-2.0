@@ -1,0 +1,9 @@
+.button_view{
+    display: flex;
+    justify-content: space-evenly;
+}
+.item_container{
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+}

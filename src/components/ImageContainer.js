@@ -1,11 +1,11 @@
-import React from 'react'
-
-function ImageContainer({imageUrl}) {
+import React from "react";
+import "./ImageContainer.css";
+function ImageContainer({ imageUrl, style }) {
   return (
-    <div>
-        <img src={imageUrl}></img>
+    <div className="image_view">
+      <img style={style} src={imageUrl}></img>
     </div>
-  )
+  );
 }
 
-export default ImageContainer
+export default ImageContainer;

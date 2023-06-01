@@ -1,8 +1,26 @@
 import React from "react";
 import "./Navbar.css";
-import {Link}from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { searchItems } from "../actions/itemAction.js";
 
 function Navbar() {
+  const products = useSelector((state) => state.items.items);
+  const dispatch = useDispatch();
+  const onSearchItems = (e) => {
+    e.preventDefault();
+     const matchedItems = products.filter(
+       (item) =>
+         item.name.toUpperCase().indexOf(e.target.value.toUpperCase()) > -1
+     );
+    dispatch(searchItems(matchedItems));
+  
+  };
+
+  //  useEffect(() => {
+  //     onSearchItems(e);
+  //  }, []);
+
   return (
     <div className="navbar">
       <Link to="/">
@@ -10,7 +28,11 @@ function Navbar() {
       </Link>
 
       <div className="navbar_search">
-        <input className="navbar_search_input" type="text"></input>
+        <input
+          className="navbar_search_input"
+          type="text"
+          onKeyUp={(e)=>onSearchItems(e)}
+        ></input>
         <svg
           className="navbar_search_icon"
           xmlns="http://www.w3.org/2000/svg"

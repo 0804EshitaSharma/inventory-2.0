@@ -12,6 +12,12 @@ export const viewItem = (name) => {
     payload: name,
   };
 };
+export const searchItems = (items) => {
+  return {
+    type: ActionTypes.SEARCH_ITEMS,
+    payload: items,
+  };
+};
 
   export const deleteItem = (name) => {
     return {

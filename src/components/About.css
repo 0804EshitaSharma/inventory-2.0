@@ -1,0 +1,26 @@
+h1{
+color: black;
+    font-size: 56px;
+    font-weight: 700;
+}
+h3{
+font-size: 32px;
+    font-weight: 700;
+    color: #00abf0;
+}
+.about-container{
+    display: flex;
+    justify-content: space-evenly;  
+}
+.section1{
+    max-width: 50%;
+}
+.section2 {
+    background-color:red;
+    max-width: 50%;
+}
+.section1_content{
+    margin-left: 50px;
+    padding: 10px;
+    
+}
