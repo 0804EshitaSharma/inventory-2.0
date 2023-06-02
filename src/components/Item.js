@@ -24,10 +24,12 @@ function Item({ name, url, price, description }) {
 
   const customStyle = {
     width: "100%",
-    maxWidth: "500px",
-    maxHeight: "200px",
+    marginLeft: "5rem",
+    marginRight: "auto",
+    // maxWidth: "500px",
+    //  maxHeight: "50rem",
     objectFit: "contain",
-    marginTop: "20px",
+    // marginTop: "20px",
   };
 
   return (
@@ -38,7 +40,7 @@ function Item({ name, url, price, description }) {
             <li>
               <ImageContainer imageUrl={url} style={customStyle} />
             </li>
-            <li>{name}</li>
+            <li className="item_name">{name}</li>
           </ul>
           <div className="button_view">
             <Button label="Delete" event={onDeleteItem} />
@@ -47,7 +49,12 @@ function Item({ name, url, price, description }) {
         </div>
       )}
       {showModal && (
-        <ItemView name={name} price={price} description={description} event={closeModal} />
+        <ItemView
+          name={name}
+          price={price}
+          description={description}
+          event={closeModal}
+        />
       )}
     </div>
   );
