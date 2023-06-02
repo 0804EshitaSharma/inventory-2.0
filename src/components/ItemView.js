@@ -32,7 +32,7 @@ function ItemView({ name, price, description, event }) {
           </li>
         </ul>
         <div className="button_container">
-          <Button className="modal_button" label="Close" event={closeModal} />
+          <Button className="modal_button" label="Close" event={event} />
           <Button className="modal_button" label="Edit" event={onEditItem} />
         </div>
         {showEditModal && <EditItem name={name} closeModal={closeModal} />}
