@@ -8,7 +8,7 @@ import * as yup from "yup";
 import { updateItem } from "../actions/itemAction.js";
 import { useDispatch } from "react-redux";
 
-function EditItem({ name }) {
+function EditItem({ name, closeModal }) {
   const schema = yup.object({
     price: yup.string().required("Item price is required"),
     description: yup.string().required("Item description is required"),
@@ -27,6 +27,12 @@ function EditItem({ name }) {
     event.preventDefault();
     console.log({ name: { name }, price: 10, description: "text" });
     dispatch(updateItem({ name: { name }, price: 100 }));
+    closeModal();
+  };
+
+  const clearForm = (event) => {
+    event.preventDefault();
+    closeModal();
   };
 
   return (
@@ -49,8 +55,8 @@ function EditItem({ name }) {
             cols="50"
           />
           <div className="button_container">
-            <Button type="submit" label="Submit" />
-            <Button type="reset" label="Clear" />
+            <Button type="submit" label="Submit" event={formSubmit} />
+            <Button type="reset" label="Clear" event={clearForm} />
           </div>
         </div>
       </form>

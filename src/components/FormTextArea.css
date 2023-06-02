@@ -1,20 +1,22 @@
-
-.form_container{
+.form_container {
     display: flex;
     flex-direction: column;
+    color: black;
 }
-.input_field_label {  
+
+.input_field_label {
     letter-spacing: 1px;
     padding: 0.8rem 0;
     font-size: 1rem;
-    color:white;
+ 
     outline: none;
 
 }
-input{
+.input_field {
     color: black;
 }
-.error_message{
+
+.error_message {
     color: red;
-    font-size: 0.9r;
+    font-size: 0.9rem;
 }

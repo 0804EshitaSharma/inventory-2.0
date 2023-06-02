@@ -11,9 +11,12 @@ function FormTextArea({
   register
 }) {
   return (
-    <div>
-      <label htmlFor={id}>{label}</label>
+    <div className="form_container">
+      <label className="input_field_label" htmlFor={id}>
+        {label}
+      </label>
       <textarea
+        className="input_field"
         name={name}
         id={id}
         placeholder={placeholder}

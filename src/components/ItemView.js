@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Button from "./Button.js";
 import "./ItemView.css";
-import EditItem from"./EditItem.js";
+import EditItem from "./EditItem.js";
 
-function ItemView({ name,price, description,event}) {
+function ItemView({ name, price, description, event }) {
   const [showEditModal, setShowEditModal] = useState(false);
   const onEditItem = () => {
     setShowEditModal(true);
@@ -21,22 +21,24 @@ function ItemView({ name,price, description,event}) {
         <h3 className="modal_heading">Item Details</h3>
         <ul>
           <li>
-            <span>Item Price :${price}</span>
+            <span>
+              <strong>Item Price :</strong>${price}
+            </span>
           </li>
           <li>
-            <span>Item Description: {description}</span>
+            <span>
+              <strong>Item Description:</strong> {description}
+            </span>
           </li>
         </ul>
-        <Button className="modal_button" label="Close" event={event} />
-        <Button
-          className="modal_button"
-          label="Edit Price"
-          event={onEditItem}
-        />
-        {showEditModal && <EditItem name={name} />}
+        <div className="button_container">
+          <Button className="modal_button" label="Close" event={closeModal} />
+          <Button className="modal_button" label="Edit" event={onEditItem} />
+        </div>
+        {showEditModal && <EditItem name={name} closeModal={closeModal} />}
       </div>
     </div>
   );
 }
 
-export default ItemView
+export default ItemView;
