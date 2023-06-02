@@ -1,26 +1,61 @@
-h1{
-color: black;
-    font-size: 56px;
+h1 {
+    color: black;
+    font-size: 36px;
     font-weight: 700;
 }
-h3{
-font-size: 32px;
+
+h3 {
+    font-size: 22px;
     font-weight: 700;
     color: #00abf0;
 }
-.about-container{
+
+.about-container {
     display: flex;
-    justify-content: space-evenly;  
+    justify-content: space-evenly;
+    /* box-sizing: border-box;
+    height: 120vh; */
 }
-.section1{
+
+.section1 {
     max-width: 50%;
 }
+
 .section2 {
-    background-color:red;
+    background-color: red;
     max-width: 50%;
 }
-.section1_content{
+
+.section1_content {
     margin-left: 50px;
     padding: 10px;
-    
+
+}
+
+/*Mobile Phones */
+@media (max-width:768px) {
+    h1 {
+
+        font-size: 26px;
+
+    }
+
+    h3 {
+        font-size: 17px;
+
+    }
+
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section1 {
+        max-width: 100%;
+    }
+
+    .section2 {
+        max-width: 100%;
+        ;
+    }
 }

@@ -6,7 +6,7 @@ import Navbar from "./Navbar.js";
 import ImageContainer from "./ImageContainer.js";
 import { Link } from "react-router-dom";
 import "./About.css";
-
+import logo from "../images/home.jpeg";
 
 function About() {
   const text = ` I'm currently in my 2nd year of MEng in Electrical and Computer
@@ -33,12 +33,12 @@ function About() {
       text: "Show All / Delete All Items along with delete individual items.",
     },
   ];
-    const customStyle = {
-      width: "100%",
-      minHeight: "500px",
-      objectFit: "contain",
-      margin: "auto auto"
-    };
+  const customStyle = {
+    width: "100%",
+    maxHeight: "80%",
+    objectFit: "contain",
+    margin: "auto auto",
+  };
   return (
     <div>
       <Navbar />
@@ -55,8 +55,7 @@ function About() {
             </Link>
           </div>
         </div>
-        <ImageContainer  style={customStyle} 
-        imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVzruan99Dn5qqzKnv0tl_HLCRVDPna7kZGNXSN2e-Qw&usqp=CAU&ec=48665701" />
+        <ImageContainer style={customStyle} imageUrl={logo} />
       </div>
     </div>
   );

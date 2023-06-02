@@ -47,7 +47,7 @@ function Item({ name, url, price, description }) {
         </div>
       )}
       {showModal && (
-        <ItemView price={price} description={description} event={closeModal} />
+        <ItemView name={name} price={price} description={description} event={closeModal} />
       )}
     </div>
   );

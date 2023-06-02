@@ -98,6 +98,12 @@ function Form() {
             register={{ ...register("url") }}
             errorMessage={errors.itemUrl?.message}
           />
+          <select id="itemcategory" name="category" required>
+            <option value="Category">Choose a Category----</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Groceries"> Groceries</option>
+            <option value="Cosmetics">Cosmetics</option>
+          </select>
           <div className="button_container">
             <Button type="submit" label="Add" />
             <Button type="reset" label="Clear" />
