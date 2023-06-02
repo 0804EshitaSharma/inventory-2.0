@@ -1,6 +1,6 @@
 .navbar {
     display: flex;
-    height: 60px;
+    height: 4rem;
     background-color: #131921;
     top: 0;
     z-index: 100;
@@ -11,28 +11,28 @@
 
 .navbar_logo {
     object-fit: contain;
-    width: 100px;
-    height: 50px;
-    margin: 0 20px;
-    margin-top: 18px;
+    width: 100rem;
+    height: 50rem;
+    margin: 0 20rem;
+    margin-top: 18rem;
 }
 
 .navbar_search {
     display: flex;
     align-items: center;
-    border-radius: 24px;
+    border-radius: 24rem;
     flex: 1;
 }
 
 .navbar_search_icon {
     background-color: #cd9042;
-    padding: 5px;
-    height: 22px;
+    padding: 0.2rem;
+    height: 1.4rem;
 }
 
 .navbar_search_input {
-    height: 12px;
-    padding: 10px;
+    height: 1.3rem;
+    padding: 0.5rem;
     border: none;
     width: 100%;
     outline: none;
@@ -41,16 +41,16 @@
 .navbar_link_1 {
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     color: white;
 }
 
 .navbar_link_2 {
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     color: white;
 }
 
@@ -60,18 +60,12 @@
 }
 
 .navbar_link_heading_1 {
-    font-size: 10px;
+    font-size: 0.9rem;
 }
 
 .navbar_link_heading_2 {
-    font-size: 13px;
+    font-size: 0.9rem;
     font-weight: 800;
-}
-
-.navbar_shopping-icon {
-
-    padding: 5px;
-    height: 22px;
 }
 
 .navbar_link_3 {
@@ -80,17 +74,24 @@
     color: white;
 }
 
-.navbar_shopping-icon_count {
-    margin-left: 5px;
-    margin-right: 10px;
-    font-size: 17px;
-    font-weight: 800;
-}
 
 .navbar_title {
     color: white;
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: 800;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+/*Mobile Phones */
+@media (max-width:468px) {
+
+    .navbar {
+            height: auto;
+            flex-direction: column;
+            width: 100%;
+    
+        }
+
+
 }

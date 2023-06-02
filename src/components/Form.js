@@ -29,9 +29,7 @@ function Form() {
   // Handle form submission
   const formSubmit = (event) => {
     console.log(event);
-    dispatch(
-      addItem(event)
-    );
+    dispatch(addItem(event));
   };
 
   // // Handle form input changes
@@ -98,6 +96,17 @@ function Form() {
             register={{ ...register("url") }}
             errorMessage={errors.itemUrl?.message}
           />
+          <div className="select_container">
+            <label className="input_field_label" htmlFor="itemcategory">
+              Item Category:
+            </label>
+            <select id="itemcategory" name="category" required>
+              <option value="Category">Choose a Category----</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Groceries"> Groceries</option>
+              <option value="Cosmetics">Cosmetics</option>
+            </select>
+          </div>
           <div className="button_container">
             <Button type="submit" label="Add" />
             <Button type="reset" label="Clear" />

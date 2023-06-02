@@ -1,1 +1,12 @@
 
+.products_container{
+    display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(270px, auto));
+        grid-gap: 50px;
+        margin: 50px auto;
+        max-width: 1440px;
+        padding: 20px;
+        grid-auto-flow: row;
+        overflow-y: auto;
+        overscroll-behavior-inline: contain;
+}

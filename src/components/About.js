@@ -5,6 +5,8 @@ import CustomParagraph from "./CustomParagraph.js";
 import Navbar from "./Navbar.js";
 import ImageContainer from "./ImageContainer.js";
 import { Link } from "react-router-dom";
+import "./About.css";
+import logo from "../images/home.jpeg";
 
 function About() {
   const text = ` I'm currently in my 2nd year of MEng in Electrical and Computer
@@ -20,7 +22,7 @@ function About() {
   const items2 = [
     { id: 1, text: "HTML" },
     { id: 2, text: "CSS" },
-    { id: 3, text: "Javascript" }
+    { id: 3, text: "Javascript" },
   ];
   const items1 = [
     { id: 1, text: "Navbar with About, Home and Dashboard Sections." },
@@ -28,29 +30,32 @@ function About() {
     { id: 3, text: "Form to add new Item to Dashboard." },
     {
       id: 4,
-      text: "Show All / Delete All Items along with delete individual items."
+      text: "Show All / Delete All Items along with delete individual items.",
     },
   ];
+  const customStyle = {
+    width: "100%",
+    maxHeight: "80%",
+    objectFit: "contain",
+    margin: "auto auto",
+  };
   return (
     <div>
       <Navbar />
-      <div>
-        <div>
-          <h1>Hi, I am Eshita Sharma</h1>
-          <h3>Student at UBC & Developer </h3>
-          <div>
+      <div className="about-container">
+        <div className="section1">
+          <div className="section1_content">
+            <h1>Hi, I am Eshita Sharma</h1>
+            <h3>Student at UBC & Developer </h3>
             <CustomParagraph text={text} />
             <CustomList heading="Features:" items={items1} />
             <CustomList heading="Technology Used:" items={items2} />
-          </div>
-
-          <div>
             <Link to="https://github.com/0804EshitaSharma">
               <Button label="Git Hub Profile" />
             </Link>
           </div>
         </div>
-        <ImageContainer imageUrl= ".images/home.JPG" />
+        <ImageContainer style={customStyle} imageUrl={logo} />
       </div>
     </div>
   );
