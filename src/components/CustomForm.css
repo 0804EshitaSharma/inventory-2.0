@@ -1,7 +1,7 @@
 .item-form-container {
     border: 2px solid lightgray;
     border-radius: 0.44rem;
-    background: rgb(0, 0, 0, 0.8);
+    background: rgb(172, 133, 103);
     display: flex;
     flex-direction: column;
     padding: 2rem;
