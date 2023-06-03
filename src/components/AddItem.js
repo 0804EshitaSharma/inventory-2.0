@@ -5,8 +5,6 @@ import CustomForm from "./CustomForm";
 
 function AddItem() {
   
-
-
   return (
     <div>
       <Navbar />

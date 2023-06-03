@@ -17,7 +17,7 @@ function EditItem({ name, closeModal }) {
     resolver: yupResolver(schema),
   });
   const dispatch = useDispatch();
-  // Handle form submission
+
   const formSubmit = (event) => {
     console.log(event);
     dispatch(updateItem({name:name , updatedData:event}));

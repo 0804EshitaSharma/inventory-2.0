@@ -7,7 +7,6 @@ function ItemView({ name, price, description, event }) {
   const [showEditModal, setShowEditModal] = useState(false);
   const onEditItem = () => {
     setShowEditModal(true);
-    // dispatch(viewItem(name));
   };
 
   const closeModal = () => {

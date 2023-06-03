@@ -1,4 +1,3 @@
-import Item from "../components/Item";
 import { ActionTypes } from "../constants/actionTypes";
 
 export const initialState = {
@@ -8,7 +7,6 @@ export const initialState = {
 };
 
 const itemReducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case ActionTypes.ADD_ITEM:
       return {

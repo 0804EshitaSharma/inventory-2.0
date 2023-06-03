@@ -13,8 +13,6 @@ h3 {
 .about-container {
     display: flex;
     justify-content: space-evenly;
-    /* box-sizing: border-box;
-    height: 120vh; */
 }
 
 .section1 {

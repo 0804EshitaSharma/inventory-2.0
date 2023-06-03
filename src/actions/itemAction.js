@@ -6,16 +6,16 @@ export const viewItems = (items) => {
     payload: items,
   };
 };
-export const viewItem = (name) => {
+export const viewItem = (itemName) => {
   return {
     type: ActionTypes.VIEW_ITEM,
-    payload: name,
+    payload: itemName,
   };
 };
-export const updateItem = (info) => {
+export const updateItem = (updatedItemInfo) => {
   return {
     type: ActionTypes.UPDATE_ITEM,
-    payload: info,
+    payload: updatedItemInfo,
   };
 };
 export const searchItems = (items) => {
@@ -30,10 +30,10 @@ export const filterItems = (items) => {
     payload: items,
   };
 };
-export const deleteItem = (name) => {
+export const deleteItem = (itemName) => {
   return {
     type: ActionTypes.DELETE_ITEM,
-    payload: name,
+    payload: itemName,
   };
 };
 export const addItem = (item) => {
