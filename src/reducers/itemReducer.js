@@ -38,8 +38,6 @@ const itemReducer = (state = initialState, action) => {
         return item;
       });
 
-      console.error(itemToUpdate);
-
       return {
         ...state,
         items: itemToUpdate,

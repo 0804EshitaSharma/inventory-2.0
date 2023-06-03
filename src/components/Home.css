@@ -9,3 +9,8 @@
         overflow-y: auto;
         overscroll-behavior-inline: contain;
 }
+.button_container{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0.4rem;
+}

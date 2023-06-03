@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Item from "./Item.js";
 import { useSelector, useDispatch } from "react-redux";
 import { viewItems } from "../actions/itemAction.js";
@@ -12,6 +12,7 @@ function Home() {
   const filteredproducts = useSelector((state) => state.items.filteredItems);
   const addedproducts = useSelector((state) => state.items.addedItems);
   const dispatch = useDispatch();
+    const [isVisible, setIsVisible] = useState(true);
 
   const fetchData = () => {
     const data =
@@ -23,6 +24,7 @@ function Home() {
 
   const deleteAllItems = () => {
     dispatch(deleteItems());
+    setIsVisible(!isVisible);
   };
 
   useEffect(() => {
@@ -50,9 +52,11 @@ function Home() {
   return (
     <div className="home-container">
       <Navbar />
-      <Button label="Delete All" event={deleteAllItems} />
       <div className="products_container">
         {filteredproducts.length > 0 ? filteredListItems : listItems}
+      </div>
+      <div className="button_container">
+       {isVisible &&  <Button label="Delete All" event={deleteAllItems} />}
       </div>
     </div>
   );
