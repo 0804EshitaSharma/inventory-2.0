@@ -9,6 +9,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { addItem } from "../actions/itemAction.js";
+import CustomSelect from "./CustomSelect";
+import { useNavigate } from "react-router-dom";
 
 function Form() {
   const schema = yup.object({
@@ -17,8 +19,10 @@ function Form() {
     description: yup.string().required("Item description is required"),
     url: yup.string().required("Item image is required"),
   });
+  const navigate = useNavigate();
   const {
     handleSubmit,
+    reset ,
     register,
     formState: { errors },
   } = useForm({
@@ -30,29 +34,14 @@ function Form() {
   const formSubmit = (event) => {
     console.log(event);
     dispatch(addItem(event));
+    reset();
+    navigate("/"); 
   };
 
-  // // Handle form input changes
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setFormData((prevFormData) => ({
-  //     ...prevFormData,
-  //     [name]: value,
-  //   }));
-  // };
+  const clearForm = () => {
+    reset();
+  };
 
-  // // Handle form input changes
-  // const clearForm = (event) => {
-  //   setFormData(() => ({
-  //     itemName: "",
-  //     itemPrice: "",
-  //     itemDescription: "",
-  //     itemImage: "",
-  //     itemCategory: "",
-  //   }));
-  // };
-
-  const addItem = () => {};
 
   return (
     <div>
@@ -90,26 +79,22 @@ function Form() {
           <FormInput
             name="url"
             id="url"
-            type="file"
+            type="text"
             placeholder="Item Image"
             label="Item Image:"
             register={{ ...register("url") }}
             errorMessage={errors.itemUrl?.message}
           />
-          <div className="select_container">
-            <label className="input_field_label" htmlFor="itemcategory">
-              Item Category:
-            </label>
-            <select id="itemcategory" name="category" required>
-              <option value="Category">Choose a Category----</option>
-              <option value="Electronics">Electronics</option>
-              <option value="Groceries"> Groceries</option>
-              <option value="Cosmetics">Cosmetics</option>
-            </select>
-          </div>
+          <CustomSelect
+            id="category"
+            name="category"
+            label="Item Category:"
+            register={{ ...register("category") }}
+            errorMessage={errors.category?.message}
+          />
           <div className="button_container">
             <Button type="submit" label="Add" />
-            <Button type="reset" label="Clear" />
+            <Button type="reset" label="Clear" event={clearForm} />
           </div>
         </div>
       </form>

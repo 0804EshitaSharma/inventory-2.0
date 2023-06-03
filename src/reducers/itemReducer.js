@@ -4,6 +4,7 @@ import { ActionTypes } from "../constants/actionTypes";
 export const initialState = {
   items: [],
   filteredItems: [],
+  addedItems: [],
 };
 
 const itemReducer = (state = initialState, action) => {
@@ -12,7 +13,8 @@ const itemReducer = (state = initialState, action) => {
     case ActionTypes.ADD_ITEM:
       return {
         ...state,
-        items: [...state.items, action.payload],
+        items: [...state.items],
+        addedItems: [action.payload],
       };
     case ActionTypes.DELETE_ITEM:
       const updatedItems = state.items.filter(
