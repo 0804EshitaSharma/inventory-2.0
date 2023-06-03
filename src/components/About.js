@@ -19,12 +19,12 @@ function About() {
               Website which alllow users to add, view, search and delete items.
               Following are the features that it currently supports.`;
 
-  const items2 = [
+  const skillsList = [
     { id: 1, text: "HTML" },
     { id: 2, text: "CSS" },
     { id: 3, text: "Javascript" },
   ];
-  const items1 = [
+  const itemsList = [
     { id: 1, text: "Navbar with About, Home and Dashboard Sections." },
     { id: 2, text: "Search and Filter Items using search bar." },
     { id: 3, text: "Form to add new Item to Dashboard." },
@@ -48,8 +48,8 @@ function About() {
             <h1>Hi, I am Eshita Sharma</h1>
             <h3>Student at UBC & Developer </h3>
             <CustomParagraph text={text} />
-            <CustomList heading="Features:" items={items1} />
-            <CustomList heading="Technology Used:" items={items2} />
+            <CustomList heading="Features:" items={itemsList} />
+            <CustomList heading="Technology Used:" items={skillsList} />
             <Link to="https://github.com/0804EshitaSharma">
               <Button label="Git Hub Profile" />
             </Link>

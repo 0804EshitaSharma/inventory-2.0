@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 
 function EditItem({ name, closeModal }) {
   const schema = yup.object({
-    price: yup.string(),
+    price: yup.number(),
     description: yup.string(),
   });
   const { handleSubmit, register } = useForm({
@@ -19,7 +19,6 @@ function EditItem({ name, closeModal }) {
   const dispatch = useDispatch();
 
   const formSubmit = (event) => {
-    console.log(event);
     dispatch(updateItem({name:name , updatedData:event}));
     closeModal();
   };

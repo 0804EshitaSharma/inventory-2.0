@@ -12,26 +12,24 @@ import CustomSelect from "./CustomSelect";
 import { useNavigate } from "react-router-dom";
 
 function CustomForm() {
-    const schema = yup.object({
-      name: yup.string().required("Item name is required"),
-      price: yup.string().required("Item price is required"),
-      description: yup.string().required("Item description is required"),
-      url: yup.string().required("Item image is required"),
-    });
-    const navigate = useNavigate();
-    const {
-      handleSubmit,
-      reset,
-      register,
-      formState: { errors },
-    } = useForm({
-      resolver: yupResolver(schema),
-    });
-    const dispatch = useDispatch();
+  const schema = yup.object({
+    name: yup.string().required("Item name is required"),
+    price: yup.string().required("Item price is required"),
+    description: yup.string().required("Item description is required"),
+    url: yup.string().required("Item image is required"),
+  });
+  const navigate = useNavigate();
+  const {
+    handleSubmit,
+    reset,
+    register,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const dispatch = useDispatch();
 
-  // Handle form submission
   const formSubmit = (event) => {
-    console.log(event);
     dispatch(addItem(event));
     reset();
     navigate("/");
@@ -40,8 +38,15 @@ function CustomForm() {
   const clearForm = () => {
     reset();
   };
+
+  const categories = [
+    { id: 1, text: "Choose a Category----" },
+    { id: 2, text: "Electronics" },
+    { id: 3, text: "Groceries" },
+    { id: 4, text: "Cosmetics" }
+  ];
   return (
-    <form className="item-form-container" onSubmit={handleSubmit(formSubmit)}>
+    <form className="item-form-container">
       <div>
         <FormInput
           name="name"
@@ -86,9 +91,10 @@ function CustomForm() {
           label="Item Category:"
           register={{ ...register("category") }}
           errorMessage={errors.category?.message}
+          categories={categories}
         />
         <div className="button_container">
-          <Button type="submit" label="Add" />
+          <Button type="submit" label="Add" event={handleSubmit(formSubmit)} />
           <Button type="reset" label="Clear" event={clearForm} />
         </div>
       </div>

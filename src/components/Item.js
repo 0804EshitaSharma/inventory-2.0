@@ -26,10 +26,7 @@ function Item({ name, url, price, description }) {
     width: "100%",
     marginLeft: "5rem",
     marginRight: "auto",
-    // maxWidth: "500px",
-    //  maxHeight: "50rem",
-    objectFit: "contain",
-    // marginTop: "20px",
+    objectFit: "contain"
   };
 
   return (
