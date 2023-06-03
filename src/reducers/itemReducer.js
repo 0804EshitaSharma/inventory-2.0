@@ -30,11 +30,11 @@ const itemReducer = (state = initialState, action) => {
       };
     case ActionTypes.UPDATE_ITEM:
       let itemToUpdate = state.items.map((item) => {
-        if (item.name === action.payload.name.name) {
+        if (item.name === action.payload.name) {
           return {
             ...item,
-            price: action.payload.price,
-            description: action.payload.description,
+            price: action.payload.updatedData.price,
+            description: action.payload.updatedData.description,
           };
         }
         return item;

@@ -1,52 +1,16 @@
 import React from "react";
-import "./Form.css";
-import { useDispatch } from "react-redux";
+import "./AddItem.css";
 import Navbar from "./Navbar.js";
-import FormInput from "./FormInput";
-import FormTextArea from "./FormTextArea";
-import Button from "./Button";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { addItem } from "../actions/itemAction.js";
-import CustomSelect from "./CustomSelect";
-import { useNavigate } from "react-router-dom";
+import CustomForm from "./CustomForm";
 
-function Form() {
-  const schema = yup.object({
-    name: yup.string().required("Item name is required"),
-    price: yup.string().required("Item price is required"),
-    description: yup.string().required("Item description is required"),
-    url: yup.string().required("Item image is required"),
-  });
-  const navigate = useNavigate();
-  const {
-    handleSubmit,
-    reset ,
-    register,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-  const dispatch = useDispatch();
-
-  // Handle form submission
-  const formSubmit = (event) => {
-    console.log(event);
-    dispatch(addItem(event));
-    reset();
-    navigate("/"); 
-  };
-
-  const clearForm = () => {
-    reset();
-  };
+function AddItem() {
+  
 
 
   return (
     <div>
       <Navbar />
-      <form className="item-form-container" onSubmit={handleSubmit(formSubmit)}>
+      {/* <form className="item-form-container" onSubmit={handleSubmit(formSubmit)}>
         <div>
           <FormInput
             name="name"
@@ -97,9 +61,10 @@ function Form() {
             <Button type="reset" label="Clear" event={clearForm} />
           </div>
         </div>
-      </form>
+      </form> */}
+      <CustomForm/>
     </div>
   );
 }
 
-export default Form;
+export default AddItem;

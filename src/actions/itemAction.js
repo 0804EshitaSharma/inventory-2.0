@@ -12,10 +12,10 @@ export const viewItem = (name) => {
     payload: name,
   };
 };
-export const updateItem = (name) => {
+export const updateItem = (info) => {
   return {
     type: ActionTypes.UPDATE_ITEM,
-    payload: name,
+    payload: info,
   };
 };
 export const searchItems = (items) => {

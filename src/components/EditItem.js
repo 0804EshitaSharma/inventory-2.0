@@ -10,23 +10,17 @@ import { useDispatch } from "react-redux";
 
 function EditItem({ name, closeModal }) {
   const schema = yup.object({
-    price: yup.string().required("Item price is required"),
-    description: yup.string().required("Item description is required"),
+    price: yup.string(),
+    description: yup.string(),
   });
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm({
+  const { handleSubmit, register } = useForm({
     resolver: yupResolver(schema),
   });
   const dispatch = useDispatch();
-
   // Handle form submission
   const formSubmit = (event) => {
-    event.preventDefault();
-    console.log({ name: { name }, price: 10, description: "text" });
-    dispatch(updateItem({ name: { name }, price: 100 }));
+    console.log(event);
+    dispatch(updateItem({name:name , updatedData:event}));
     closeModal();
   };
 
@@ -37,14 +31,15 @@ function EditItem({ name, closeModal }) {
 
   return (
     <div>
-      <form className="item-form-container" onSubmit={formSubmit}>
+      <form className="item-form-container">
         <div>
           <FormInput
-            name="name"
-            id="name"
+            name="price"
+            id="price"
             type="number"
             placeholder="Item Price"
             label="Enter Price:"
+            register={{ ...register("price") }}
           />
           <FormTextArea
             name="description"
@@ -53,9 +48,14 @@ function EditItem({ name, closeModal }) {
             label="Enter Description:"
             rows="5"
             cols="50"
+            register={{ ...register("description") }}
           />
           <div className="button_container">
-            <Button type="submit" label="Submit" event={formSubmit} />
+            <Button
+              type="submit"
+              label="Submit"
+              event={handleSubmit(formSubmit)}
+            />
             <Button type="reset" label="Clear" event={clearForm} />
           </div>
         </div>
