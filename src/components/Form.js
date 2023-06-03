@@ -10,6 +10,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { addItem } from "../actions/itemAction.js";
 import CustomSelect from "./CustomSelect";
+import { useNavigate } from "react-router-dom";
 
 function Form() {
   const schema = yup.object({
@@ -18,6 +19,7 @@ function Form() {
     description: yup.string().required("Item description is required"),
     url: yup.string().required("Item image is required"),
   });
+  const navigate = useNavigate();
   const {
     handleSubmit,
     reset ,
@@ -33,6 +35,7 @@ function Form() {
     console.log(event);
     dispatch(addItem(event));
     reset();
+    navigate("/"); 
   };
 
   const clearForm = () => {
