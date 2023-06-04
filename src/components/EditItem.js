@@ -3,18 +3,11 @@ import FormInput from "./FormInput";
 import FormTextArea from "./FormTextArea";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { updateItem } from "../actions/itemAction.js";
 import { useDispatch } from "react-redux";
 
 function EditItem({ name, closeModal }) {
-  const schema = yup.object({
-    price: yup.number(),
-    description: yup.string(),
-  });
   const { handleSubmit, register } = useForm({
-    resolver: yupResolver(schema),
   });
   const dispatch = useDispatch();
 

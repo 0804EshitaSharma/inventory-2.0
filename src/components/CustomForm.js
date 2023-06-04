@@ -5,19 +5,11 @@ import FormInput from "./FormInput";
 import FormTextArea from "./FormTextArea";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { addItem } from "../actions/itemAction.js";
 import CustomSelect from "./CustomSelect";
 import { useNavigate } from "react-router-dom";
 
 function CustomForm() {
-  const schema = yup.object({
-    name: yup.string().required("Item name is required"),
-    price: yup.string().required("Item price is required"),
-    description: yup.string().required("Item description is required"),
-    url: yup.string().required("Item image is required"),
-  });
   const navigate = useNavigate();
   const {
     handleSubmit,
@@ -25,7 +17,6 @@ function CustomForm() {
     register,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
   });
   const dispatch = useDispatch();
 
@@ -54,7 +45,7 @@ function CustomForm() {
           type="text"
           placeholder="Item Name"
           label="Item Name:"
-          register={{ ...register("name") }}
+          register={{ ...register("name", { required: true }) }}
           errorMessage={errors.itemName?.message}
         />
         <FormInput
@@ -63,7 +54,7 @@ function CustomForm() {
           type="number"
           placeholder="Item Price"
           label="Item Price:"
-          register={{ ...register("price") }}
+          register={{ ...register("price", { required: true }) }}
           errorMessage={errors.itemPrice?.message}
         />
         <FormTextArea
@@ -73,7 +64,7 @@ function CustomForm() {
           label="Item Description:"
           rows="5"
           cols="50"
-          register={{ ...register("description") }}
+          register={{ ...register("description", { required: true }) }}
           errorMessage={errors.itemDescription?.message}
         />
         <FormInput
@@ -82,14 +73,14 @@ function CustomForm() {
           type="text"
           placeholder="Item Image"
           label="Item Image:"
-          register={{ ...register("url") }}
+          register={{ ...register("url", { required: true }) }}
           errorMessage={errors.itemUrl?.message}
         />
         <CustomSelect
           id="category"
           name="category"
           label="Item Category:"
-          register={{ ...register("category") }}
+          register={{ ...register("category", { required: true }) }}
           errorMessage={errors.category?.message}
           categories={categories}
         />
