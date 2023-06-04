@@ -1,6 +1,6 @@
 import React from "react";
 
-function CustomSelect({ id, name, label, register, errorMessage, categories,event }) {
+function CustomSelect({ id, name, label, register, categories,event }) {
   const options = categories.map((option) => (
     <option key={option.id} value={option.text}>
       {option.text}
@@ -17,7 +17,6 @@ function CustomSelect({ id, name, label, register, errorMessage, categories,even
       <select id={id} name={name} {...register} onChange={event}>
         {options}
       </select>
-      <span className="error_message">{errorMessage}</span>
     </div>
   );
 }

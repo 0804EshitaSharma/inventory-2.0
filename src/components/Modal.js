@@ -4,6 +4,7 @@ import Button from "./Button.js";
 
 function Modal({heading, content, closeModal }) {
   return (
+    /* Learned From https://www.youtube.com/watch?v=GMaQPv5ZsR0 */
     <div>
       <div className="modal_wrapper"></div>
       <div className="modal_content">

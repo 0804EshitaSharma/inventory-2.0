@@ -26,7 +26,6 @@
     flex-direction: column;
 }
 
-/*Mobile Phones */
 @media (max-width:545px) {
 
     .item-form-container {

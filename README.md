@@ -1,15 +1,13 @@
-
 # Inventory Website 2.0
 
 This is an Inventory Website with features using which users
-            can view items, search using filter Items from
-            Dashboard ,Delete  and update items. This a project is built using React
-           .
+can view items, search using filter Items from
+Dashboard ,Delete and update items. This a project is built using React
+.
 
 ## Authors
 
 - [@0804EshitaSharma](https://github.com/0804EshitaSharma)
-
 
 ## Features
 
@@ -20,26 +18,19 @@ This is an Inventory Website with features using which users
 - Update Item details.
 - View Details of each item.
 
-
-
-
-
 ## 🚀 About Me
+
 I'm a student at UBC interested in becoming Full Stack Developer.
 
-
-
 ## 🔗 Links
+
 [![linkedin](https://www.linkedin.com/eshitasharma)](https://www.linkedin.com/)
-
-
 
 ## Tech Stack
 
 **Client:** React
 
-**Server:** mock  JSON data
-
+**Server:** mock JSON data
 
 ## Run Locally
 
@@ -50,37 +41,26 @@ Clone the project
 ```
 
 ```bash
-  npm start 
+  npm start
 ```
 
 Start the server
 
 ```bash
-Open with Live server 
+Open with Live server
 ```
-
 
 ## Acknowledgements/Citations
 
- - [Awesome HTML, CSS and Javascript Tutorials](https://www.w3schools.com/default.asp)
+- [Awesome Redux Tutorials](https://www.youtube.com/watch?v=9boMnm5X9ak&list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK)
 
- - [Awesome Youtube Tutorials on Javascript](https://www.youtube.com/watch?v=hEs3IL6UyvE)
-  - [Awesome Youtube Tutorials on Media Queries](https://www.youtube.com/watch?v=H-AmJSMcNfI)
+- [Awesome React Official Documentation ](https://react.dev/) 
+- [Styles from Assignment 1]
 
- - [Awesome Youtube Tutorials on Horizontal Scroll Styling](https://www.youtube.com/watch?v=gzXyRa7jwk4)
-
- - https://www.youtube.com/watch?v=o6bLYYStZss
- - https://www.youtube.com/watch?v=H62pLIoqK28
- - https://www.w3schools.com/cssref/sel_nth-child.php
- - https://www.youtube.com/watch?v=gzXyRa7jwk4
- - https://www.youtube.com/watch?v=HMqB4aASr0E
- - https://www.youtube.com/watch?v=s9dvP3_hpDs
- - Referred navigation workflow between sections using ChatGPT.
-
-
+- https://react.dev/learn
+- https://www.youtube.com/watch?v=GMaQPv5ZsR0 -https://www.youtube.com/watch?v=AlNF_ED9s7Y&list=PLwGdqUZWnOp1bMwGTJVaQmdwbmX61iceM&index=4 -https://www.youtube.com/watch?v=K4r6nw6aeg4 -https://www.youtube.com/watch?v=9boMnm5X9ak&list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK
+-Styles from Assignment 1
 
 ## Contributing
 
 Contributions are always welcome!
-
-

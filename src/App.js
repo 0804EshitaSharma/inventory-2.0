@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
+       {/* Learned from https://www.youtube.com/watch?v=AlNF_ED9s7Y&list=PLwGdqUZWnOp1bMwGTJVaQmdwbmX61iceM&index=3  */}
       <Router>
         <Routes>
           <Route path="/" element={<Home />}></Route>

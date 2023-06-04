@@ -11,11 +11,11 @@ import { useNavigate } from "react-router-dom";
 
 function CustomForm() {
   const navigate = useNavigate();
+  /* Learned from https://www.youtube.com/watch?v=K4r6nw6aeg4 */
   const {
     handleSubmit,
     reset,
-    register,
-    formState: { errors },
+    register
   } = useForm({
   });
   const dispatch = useDispatch();
@@ -46,7 +46,6 @@ function CustomForm() {
           placeholder="Item Name"
           label="Item Name:"
           register={{ ...register("name", { required: true }) }}
-          errorMessage={errors.itemName?.message}
         />
         <FormInput
           name="price"
@@ -55,7 +54,6 @@ function CustomForm() {
           placeholder="Item Price"
           label="Item Price:"
           register={{ ...register("price", { required: true }) }}
-          errorMessage={errors.itemPrice?.message}
         />
         <FormTextArea
           name="description"
@@ -65,7 +63,6 @@ function CustomForm() {
           rows="5"
           cols="50"
           register={{ ...register("description", { required: true }) }}
-          errorMessage={errors.itemDescription?.message}
         />
         <FormInput
           name="url"
@@ -74,14 +71,12 @@ function CustomForm() {
           placeholder="Item Image"
           label="Item Image:"
           register={{ ...register("url", { required: true }) }}
-          errorMessage={errors.itemUrl?.message}
         />
         <CustomSelect
           id="category"
           name="category"
           label="Item Category:"
           register={{ ...register("category", { required: true }) }}
-          errorMessage={errors.category?.message}
           categories={categories}
         />
         <div className="button_container">

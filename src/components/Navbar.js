@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 function Navbar() {
   const products = useSelector((state) => state.items.items);
   const dispatch = useDispatch();
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const onSearchItems = (e) => {
     e.preventDefault();
     const matchedItems = products.filter(
