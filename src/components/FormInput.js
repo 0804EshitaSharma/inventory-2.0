@@ -1,7 +1,7 @@
 import React from 'react'
 import "./FormInput.css";
 
-function FormInput({id,name,placeholder,type,label,register,errorMessage}) {
+function FormInput({id,name,placeholder,type,label,register}) {
   return (
     <div className='form_container'>
       <label className="input_field_label" htmlFor={id}>
@@ -16,7 +16,6 @@ function FormInput({id,name,placeholder,type,label,register,errorMessage}) {
         autoComplete="off"
         {...register}
       ></input>
-      <span className='error_message'>{errorMessage}</span>
     </div>
   );
 }

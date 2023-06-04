@@ -1,6 +1,6 @@
-import Item from "../components/Item";
 import { ActionTypes } from "../constants/actionTypes";
 
+// Learned Redux concept from https://www.youtube.com/watch?v=9boMnm5X9ak&list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK
 export const initialState = {
   items: [],
   filteredItems: [],
@@ -8,7 +8,6 @@ export const initialState = {
 };
 
 const itemReducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case ActionTypes.ADD_ITEM:
       return {
@@ -30,17 +29,15 @@ const itemReducer = (state = initialState, action) => {
       };
     case ActionTypes.UPDATE_ITEM:
       let itemToUpdate = state.items.map((item) => {
-        if (item.name === action.payload.name.name) {
+        if (item.name === action.payload.name) {
           return {
             ...item,
-            price: action.payload.price,
-            description: action.payload.description,
+            price: action.payload.updatedData.price,
+            description: action.payload.updatedData.description,
           };
         }
         return item;
       });
-
-      console.error(itemToUpdate);
 
       return {
         ...state,

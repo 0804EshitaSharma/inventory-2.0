@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Inventory Website 2.0
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an Inventory Website with features using which users
+can view items, search using filter Items from
+Dashboard ,Delete and update items. This a project is built using React
+.
 
-## Available Scripts
+## Authors
 
-In the project directory, you can run:
+- [@0804EshitaSharma](https://github.com/0804EshitaSharma)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Navbar with About, Home and Add Item Sections.
+- Search and Filter Items using search bar.
+- Form to add new Item to Home.
+- Show All / Delete All Items along with delete individual items.
+- Update Item details.
+- View Details of each item.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 About Me
 
-### `npm test`
+I'm a student at UBC interested in becoming Full Stack Developer.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🔗 Links
 
-### `npm run build`
+[![linkedin](https://www.linkedin.com/eshitasharma)](https://www.linkedin.com/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Client:** React
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Server:** mock JSON data
 
-### `npm run eject`
+## Run Locally
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Clone the project
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  git clone https://github.com/0804EshitaSharma/inventory-2.0
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+  npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Start the server
 
-## Learn More
+```bash
+Open with Live server
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Acknowledgements/Citations
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [Awesome Redux Tutorials](https://www.youtube.com/watch?v=9boMnm5X9ak&list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK)
 
-### Code Splitting
+- [Awesome React Official Documentation ](https://react.dev/) 
+- [Styles from Assignment 1]
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- https://react.dev/learn
+- https://www.youtube.com/watch?v=GMaQPv5ZsR0 -https://www.youtube.com/watch?v=AlNF_ED9s7Y&list=PLwGdqUZWnOp1bMwGTJVaQmdwbmX61iceM&index=4 -https://www.youtube.com/watch?v=K4r6nw6aeg4 -https://www.youtube.com/watch?v=9boMnm5X9ak&list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK
+-Styles from Assignment 1
 
-### Analyzing the Bundle Size
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions are always welcome!

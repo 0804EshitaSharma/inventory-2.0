@@ -9,7 +9,6 @@ margin-top: 20px;
      object-fit: contain;
  }
 
-/*Mobile Phones */
 @media (max-width:768px) {
     
     .image_view img {
@@ -20,7 +19,6 @@ margin-top: 20px;
 
     
 }
-/*Mobile Phones */
 @media (max-width:468px) {
 
     .image_view img {

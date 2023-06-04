@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { searchItems } from "../actions/itemAction.js";
 import FilterCard from "./FilterCard.js";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const products = useSelector((state) => state.items.items);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const onSearchItems = (e) => {
     e.preventDefault();
     const matchedItems = products.filter(
@@ -15,11 +17,8 @@ function Navbar() {
         item.name.toUpperCase().indexOf(e.target.value.toUpperCase()) > -1
     );
     dispatch(searchItems(matchedItems));
+    navigate("/");
   };
-
-  //  useEffect(() => {
-  //     onSearchItems(e);
-  //  }, []);
 
   return (
     <div className="navbar">

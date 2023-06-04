@@ -1,14 +1,14 @@
-
 .form_container{
     display: flex;
     flex-direction: column;
 }
 .input_field_label {  
-    letter-spacing: 1px;
+   
     padding: 0.8rem 0;
     font-size: 1rem;
-    color:white;
+    color:black;
     outline: none;
+    font-weight: 700;
 
 }
 input{

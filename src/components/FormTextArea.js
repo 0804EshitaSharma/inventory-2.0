@@ -25,7 +25,6 @@ function FormTextArea({
         cols={cols}
         {...register}
       ></textarea>
-      <span className="error_message">{errorMessage}</span>
     </div>
   );
 }
