@@ -1,70 +1,86 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Inventory Website 2.0
 
-## Available Scripts
+This is an Inventory Website with features using which users
+            can view items, search using filter Items from
+            Dashboard ,Delete  and update items. This a project is built using React
+           .
 
-In the project directory, you can run:
+## Authors
 
-### `npm start`
+- [@0804EshitaSharma](https://github.com/0804EshitaSharma)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Navbar with About, Home and Add Item Sections.
+- Search and Filter Items using search bar.
+- Form to add new Item to Home.
+- Show All / Delete All Items along with delete individual items.
+- Update Item details.
+- View Details of each item.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 About Me
+I'm a student at UBC interested in becoming Full Stack Developer.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🔗 Links
+[![linkedin](https://www.linkedin.com/eshitasharma)](https://www.linkedin.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Tech Stack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Client:** React
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Server:** mock  JSON data
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Run Locally
 
-### Analyzing the Bundle Size
+Clone the project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+  git clone https://github.com/0804EshitaSharma/inventory-2.0
+```
 
-### Making a Progressive Web App
+```bash
+  npm start 
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Start the server
 
-### Advanced Configuration
+```bash
+Open with Live server 
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Acknowledgements/Citations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+ - [Awesome HTML, CSS and Javascript Tutorials](https://www.w3schools.com/default.asp)
 
-### `npm run build` fails to minify
+ - [Awesome Youtube Tutorials on Javascript](https://www.youtube.com/watch?v=hEs3IL6UyvE)
+  - [Awesome Youtube Tutorials on Media Queries](https://www.youtube.com/watch?v=H-AmJSMcNfI)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ - [Awesome Youtube Tutorials on Horizontal Scroll Styling](https://www.youtube.com/watch?v=gzXyRa7jwk4)
+
+ - https://www.youtube.com/watch?v=o6bLYYStZss
+ - https://www.youtube.com/watch?v=H62pLIoqK28
+ - https://www.w3schools.com/cssref/sel_nth-child.php
+ - https://www.youtube.com/watch?v=gzXyRa7jwk4
+ - https://www.youtube.com/watch?v=HMqB4aASr0E
+ - https://www.youtube.com/watch?v=s9dvP3_hpDs
+ - Referred navigation workflow between sections using ChatGPT.
+
+
+
+## Contributing
+
+Contributions are always welcome!
+
+
