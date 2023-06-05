@@ -7,7 +7,6 @@ function FormTextArea({
   label,
   rows,
   cols,
-  errorMessage,
   register
 }) {
   return (

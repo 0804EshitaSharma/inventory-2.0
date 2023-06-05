@@ -30,7 +30,6 @@ h3 {
 
 }
 
-/*Mobile Phones */
 @media (max-width:768px) {
     h1 {
 
@@ -54,6 +53,6 @@ h3 {
 
     .section2 {
         max-width: 100%;
-        ;
+        
     }
 }

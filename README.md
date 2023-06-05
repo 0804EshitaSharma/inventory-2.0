@@ -55,11 +55,15 @@ Open with Live server
 - [Awesome Redux Tutorials](https://www.youtube.com/watch?v=9boMnm5X9ak&list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK)
 
 - [Awesome React Official Documentation ](https://react.dev/) 
-- [Styles from Assignment 1]
+- [Styles from Assignment] 1(https://github.com/0804EshitaSharma/Assignment1)
 
 - https://react.dev/learn
-- https://www.youtube.com/watch?v=GMaQPv5ZsR0 -https://www.youtube.com/watch?v=AlNF_ED9s7Y&list=PLwGdqUZWnOp1bMwGTJVaQmdwbmX61iceM&index=4 -https://www.youtube.com/watch?v=K4r6nw6aeg4 -https://www.youtube.com/watch?v=9boMnm5X9ak&list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK
--Styles from Assignment 1
+- https://www.youtube.com/watch?v=GMaQPv5ZsR0
+-https://www.youtube.com/watch?v=AlNF_ED9s7Y&list=PLwGdqUZWnOp1bMwGTJVaQmdwbmX61iceM&index=4
+-https://www.youtube.com/watch?v=K4r6nw6aeg4
+-https://www.youtube.com/watch?v=9boMnm5X9ak&list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK
+-https://www.youtube.com/watch?v=0W6i5LYKCSI
+
 
 ## Contributing
 
