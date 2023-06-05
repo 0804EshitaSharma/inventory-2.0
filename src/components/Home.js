@@ -13,6 +13,7 @@ function Home() {
   const addedproducts = useSelector((state) => state.items.addedItems);
   const dispatch = useDispatch();
     const [isVisible, setIsVisible] = useState(true);
+    /* Learned concept from https://www.youtube.com/watch?v=0W6i5LYKCSI */
 
   const fetchData = () => {
     const data =

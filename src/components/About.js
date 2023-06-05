@@ -25,13 +25,15 @@ function About() {
     { id: 3, text: "Javascript" },
   ];
   const itemsList = [
-    { id: 1, text: "Navbar with About, Home and Dashboard Sections." },
+    { id: 1, text: "Navbar with About, Home and Add Sections." },
     { id: 2, text: "Search and Filter Items using search bar." },
     { id: 3, text: "Form to add new Item to Dashboard." },
     {
       id: 4,
       text: "Show All / Delete All Items along with delete individual items.",
     },
+    { id: 5, text: "Update Item details" },
+    { id: 6, text: "View Details of each item" },
   ];
   const customStyle = {
     width: "100%",
