@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "./Button";
-import { deleteItem } from "../actions/itemAction.js";
-import { viewItem } from "../actions/itemAction.js";
 import ItemView from "./ItemView.js";
 import ImageContainer from "./ImageContainer";
+import { deleteItemAsync } from "../redux/ItemSlice.js";
 import "./Item.css";
 
-function Item({ name, url, price, description }) {
+function Item({ id, name, url, price, description }) {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const onDeleteItem = () => {
-    dispatch(deleteItem(name));
+    dispatch(deleteItemAsync(id));
   };
   const onViewItem = () => {
     setShowModal(true);
-    dispatch(viewItem(name));
   };
 
   const closeModal = () => {
@@ -26,7 +24,7 @@ function Item({ name, url, price, description }) {
     width: "100%",
     marginLeft: "5rem",
     marginRight: "auto",
-    objectFit: "contain"
+    objectFit: "contain",
   };
 
   return (
