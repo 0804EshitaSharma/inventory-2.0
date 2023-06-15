@@ -9,6 +9,7 @@ import { selectAllItems, getItemsAsync } from "../redux/ItemSlice.js";
 function Home() {
   const dispatch = useDispatch();
   const products = useSelector(selectAllItems);
+  const filteredproducts = useSelector((state) => state.items.filteredItems);
   const [isVisible, setIsVisible] = useState(true);
   /* Learned concept from https://www.youtube.com/watch?v=0W6i5LYKCSI */
 
@@ -31,10 +32,21 @@ function Home() {
       url={product.url}
     />
   ));
+  const filteredListItems = filteredproducts.map((product) => (
+    <Item
+      key={product.name}
+      name={product.name}
+      price={product.price}
+      description={product.description}
+      url={product.url}
+    />
+  ));
   return (
     <div className="home-container">
       <Navbar />
-      <div className="products_container">{listItems}</div>
+      <div className="products_container">
+        {filteredproducts.length > 0 ? filteredListItems : listItems}
+      </div>
       <div className="button_container">
         {isVisible && <Button label="Delete All" event={deleteAllItems} />}
       </div>

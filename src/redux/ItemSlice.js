@@ -57,6 +57,7 @@ export const itemSlice = createSlice({
   name: "item",
   initialState: {
     items: [],
+    filteredItems: [],
   },
   reducers: {
     addItem: (state, action) => {
@@ -98,7 +99,9 @@ export const itemSlice = createSlice({
         state.items[index] = updatedItem;
       }
     });
-
+    builder.addCase(filterItemsAsync.fulfilled, (state, action) => {
+      state.filteredItems = action.payload;
+    });
     // builder.addCase(deleteItemById.fulfilled, (state, action) => {
     //   state.isLoading = false;
     //   state.items.splice(action.payload, 1);

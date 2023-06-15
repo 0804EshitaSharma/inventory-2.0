@@ -102,6 +102,22 @@ app.delete("/item/:itemId", function (req, res, next) {
   res.send(req.params.itemId);
 });
 
+/* UPDATE itemlisting. */
+app.patch("/update/:itemId", function (req, res, next) {
+  const updatedItem = items
+    .filter((item) => item.id == req.params.itemId)
+    .map((item) => {
+      return {
+        ...item,
+        price: req.body.price,
+        description: req.body.description,
+      };
+    });
+  items = items.filter((item) => item.id != req.params.itemId);
+  items.push(updatedItem[0]);
+  return res.send(updatedItem[0]);
+});
+
 // module.exports = router;
 app.listen(3001, () => {
   console.log("Server Started");
