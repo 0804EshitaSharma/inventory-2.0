@@ -102,18 +102,9 @@ export const itemSlice = createSlice({
     builder.addCase(filterItemsAsync.fulfilled, (state, action) => {
       state.filteredItems = action.payload;
     });
-    // builder.addCase(deleteItemById.fulfilled, (state, action) => {
-    //   state.isLoading = false;
-    //   state.items.splice(action.payload, 1);
-    // });
-    // builder.addCase(filterItemsByCategory.fulfilled, (state, action) => {
-    //   state.isLoading = false;
-    //   state.items = action.payload;
-    // });
-    // builder.addCase(searchItemsByQuery.fulfilled, (state, action) => {
-    //   state.isLoading = false;
-    //   state.items = action.payload;
-    // });
+    builder.addCase(searchItemsAsync.fulfilled, (state, action) => {
+      state.filteredItems = action.payload;
+    });
   },
 });
 

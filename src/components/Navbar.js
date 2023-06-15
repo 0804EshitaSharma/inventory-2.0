@@ -2,21 +2,18 @@ import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { searchItems } from "../actions/itemAction.js";
 import FilterCard from "./FilterCard.js";
 import { useNavigate } from "react-router-dom";
+import { searchItemsAsync } from "../redux/ItemSlice";
 
 function Navbar() {
-  const products = useSelector((state) => state.items.items);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onSearchItems = (e) => {
     e.preventDefault();
-    const matchedItems = products.filter(
-      (item) =>
-        item.name.toUpperCase().indexOf(e.target.value.toUpperCase()) > -1
-    );
-    dispatch(searchItems(matchedItems));
+    if (e.target.value.length > 0) {
+      dispatch(searchItemsAsync(e.target.value));
+    }
     navigate("/");
   };
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./FilterCard.css";
 import { useSelector, useDispatch } from "react-redux";
-import { filterItems, viewItems } from "../actions/itemAction.js";
+import { filterItemsAsync } from "../redux/ItemSlice";
 import Modal from "./Modal";
 import CustomSelect from "./CustomSelect";
 
@@ -18,17 +18,7 @@ function FilterCard() {
     { id: 4, text: "Cosmetics" },
   ];
   const filteredItems = (e) => {
-    const matchedItems = products.filter(
-      (item) => item.category.toUpperCase() === e.target.value.toUpperCase()
-    );
-    if (
-      matchedItems.length === 0 &&
-      e.target.value !== "Choose a Category----"
-    ) {
-      setShowModal(true);
-    } else {
-      dispatch(filterItems(matchedItems));
-    }
+    dispatch(filterItemsAsync(e.target.value));
   };
 
   const closeModal = () => {
