@@ -3,7 +3,7 @@ import Button from "./Button.js";
 import "./ItemView.css";
 import EditItem from "./EditItem.js";
 
-function ItemView({ name, price, description, event }) {
+function ItemView({ id, price, description, event }) {
   const [showEditModal, setShowEditModal] = useState(false);
   const onEditItem = () => {
     setShowEditModal(true);
@@ -34,7 +34,7 @@ function ItemView({ name, price, description, event }) {
           <Button className="modal_button" label="Close" event={event} />
           <Button className="modal_button" label="Edit" event={onEditItem} />
         </div>
-        {showEditModal && <EditItem name={name} closeModal={closeModal} />}
+        {showEditModal && <EditItem id={id} closeModal={closeModal} />}
       </div>
     </div>
   );

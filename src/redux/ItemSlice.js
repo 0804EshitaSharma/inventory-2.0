@@ -36,6 +36,16 @@ export const addItemAsync = createAsyncThunk(
   }
 );
 
+export const updateItemAsync = createAsyncThunk(
+  "items/updateItemAsync",
+  async (updatedItem) => {
+    const response = await axios.patch(
+      `/update/${updatedItem.id}`,
+      updatedItem.data
+    );
+    return response.json();
+  }
+);
 export const deleteItemAsync = createAsyncThunk(
   "items/deleteItemAsync",
   async (id) => {
@@ -58,6 +68,9 @@ export const itemSlice = createSlice({
     deleteItem: (state, action) => {
       state.items = state.items.splice(action.payload, 1);
     },
+    updateItem: (state, action) => {
+      console.log(action);
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getItemsAsync.fulfilled, (state, action) => {
@@ -71,10 +84,14 @@ export const itemSlice = createSlice({
         state.items.splice(index, 1);
       }
     });
-    // builder.addCase(addNewItem.fulfilled, (state, action) => {
-    //   state.isLoading = false;
-    //   state.items.push(action.payload);
-    // });
+    builder.addCase(addItemAsync.fulfilled, (state, action) => {
+      state.items.push(action.payload);
+    });
+    builder.addCase(updateItemAsync.fulfilled, (state, action) => {
+      console.log(action.payload.id);
+      console.log(state.items);
+      //state.items.push(action.payload);
+    });
     // builder.addCase(deleteItemById.fulfilled, (state, action) => {
     //   state.isLoading = false;
     //   state.items.splice(action.payload, 1);
