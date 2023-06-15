@@ -43,7 +43,7 @@ export const updateItemAsync = createAsyncThunk(
       `/update/${updatedItem.id}`,
       updatedItem.data
     );
-    return response.json();
+    return response.data;
   }
 );
 export const deleteItemAsync = createAsyncThunk(
@@ -69,7 +69,11 @@ export const itemSlice = createSlice({
       state.items = state.items.splice(action.payload, 1);
     },
     updateItem: (state, action) => {
-      console.log(action);
+      const updatedItem = action.payload;
+      const index = state.items.findIndex((item) => item.id === updatedItem.id);
+      if (index !== -1) {
+        state.items[index] = updatedItem;
+      }
     },
   },
   extraReducers: (builder) => {
@@ -88,10 +92,13 @@ export const itemSlice = createSlice({
       state.items.push(action.payload);
     });
     builder.addCase(updateItemAsync.fulfilled, (state, action) => {
-      console.log(action.payload.id);
-      console.log(state.items);
-      //state.items.push(action.payload);
+      const updatedItem = action.payload;
+      const index = state.items.findIndex((item) => item.id === updatedItem.id);
+      if (index !== -1) {
+        state.items[index] = updatedItem;
+      }
     });
+
     // builder.addCase(deleteItemById.fulfilled, (state, action) => {
     //   state.isLoading = false;
     //   state.items.splice(action.payload, 1);

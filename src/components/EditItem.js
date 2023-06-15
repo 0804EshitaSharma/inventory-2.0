@@ -3,16 +3,15 @@ import FormInput from "./FormInput";
 import FormTextArea from "./FormTextArea";
 import Button from "./Button";
 import { useForm } from "react-hook-form";
-import { updateItem } from "../actions/itemAction.js";
 import { useDispatch } from "react-redux";
+import { updateItemAsync } from "../redux/ItemSlice";
 
-function EditItem({ name, closeModal }) {
-  const { handleSubmit, register } = useForm({
-  });
+function EditItem({ id, closeModal }) {
+  const { handleSubmit, register } = useForm({});
   const dispatch = useDispatch();
 
   const formSubmit = (event) => {
-    dispatch(updateItem({name:name , updatedData:event}));
+    dispatch(updateItemAsync({ id: id, data: event }));
     closeModal();
   };
 
