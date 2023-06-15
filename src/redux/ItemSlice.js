@@ -32,7 +32,7 @@ export const addItemAsync = createAsyncThunk(
   "items/addItemAsync",
   async (newItem) => {
     const response = await axios.post("/add", newItem);
-    return response.json();
+    return response.data;
   }
 );
 
