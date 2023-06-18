@@ -64,6 +64,8 @@ var items = [
     category: "Groceries",
   },
 ];
+
+/* Learned from Workshop3* /
 /* GET items listing. */
 app.get("/items", (req, res) => {
   res.send(items);
@@ -96,7 +98,7 @@ app.post("/add", function (req, res, next) {
   return res.send(req.body);
 });
 
-/* DELETE item by name listing. */
+/* DELETE item by id . */
 app.delete("/item/:itemId", function (req, res, next) {
   items = items.filter((item) => item.id !== req.params.itemId);
   res.send(req.params.itemId);
@@ -118,7 +120,6 @@ app.patch("/update/:itemId", function (req, res, next) {
   return res.send(updatedItem[0]);
 });
 
-// module.exports = router;
 app.listen(3001, () => {
   console.log("Server Started");
 });

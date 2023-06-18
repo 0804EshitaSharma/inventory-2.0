@@ -47,9 +47,9 @@ function Home() {
       <div className="products_container">
         {filteredproducts.length > 0 ? filteredListItems : listItems}
       </div>
-      <div className="button_container">
+      {/* <div className="button_container">
         {isVisible && <Button label="Delete All" event={deleteAllItems} />}
-      </div>
+      </div> */}
     </div>
   );
 }

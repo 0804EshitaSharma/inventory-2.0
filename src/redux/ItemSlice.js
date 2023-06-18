@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+/*Learned from https://www.youtube.com/watch?v=fiesH6WU63I */
 export const getItemsAsync = createAsyncThunk(
   "items/getItemsAsync",
   async () => {
@@ -53,6 +54,7 @@ export const deleteItemAsync = createAsyncThunk(
     return id;
   }
 );
+/*Learned from https://redux-toolkit.js.org/tutorials/quick-start */
 export const itemSlice = createSlice({
   name: "item",
   initialState: {
@@ -107,8 +109,6 @@ export const itemSlice = createSlice({
     });
   },
 });
-
-// Action creators are generated for each case reducer function
 export const {
   viewItems,
   addItem,
