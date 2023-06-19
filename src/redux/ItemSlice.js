@@ -85,7 +85,6 @@ export const itemSlice = createSlice({
     });
     builder.addCase(deleteItemAsync.fulfilled, (state, action) => {
       const id = action.payload;
-      console.log(id);
       const index = state.items.findIndex((item) => item.id == id);
       if (index > -1) {
         state.items.splice(index, 1);
