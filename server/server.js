@@ -99,13 +99,9 @@ app.get("/item/:itemId", async function (req, res, next) {
 
 // /* GET items by substring listing. */
 app.get("/search/:query", async function (req, res, next) {
-  const matchedItems = items.filter((item) =>
-    item.name.toUpperCase().includes(req.params.query.toUpperCase())
-  );
-  res.send(matchedItems);
   try {
     const matchedItems = await Products.find({
-      name: req.params.itemCategory,
+      name: { $regex: req.params.query, $options: "i" },
     });
     res.status(200).send(matchedItems);
   } catch (e) {
