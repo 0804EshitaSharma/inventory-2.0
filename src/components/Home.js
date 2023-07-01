@@ -24,8 +24,8 @@ function Home() {
 
   const listItems = products.map((product) => (
     <Item
-      key={product.id}
-      id={product.id}
+      key={product._id}
+      id={product._id}
       name={product.name}
       price={product.price}
       description={product.description}
@@ -34,7 +34,7 @@ function Home() {
   ));
   const filteredListItems = filteredproducts.map((product) => (
     <Item
-      key={product.name}
+      key={product._id}
       name={product.name}
       price={product.price}
       description={product.description}

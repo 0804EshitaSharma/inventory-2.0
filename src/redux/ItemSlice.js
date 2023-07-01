@@ -85,7 +85,7 @@ export const itemSlice = createSlice({
     });
     builder.addCase(deleteItemAsync.fulfilled, (state, action) => {
       const id = action.payload;
-      const index = state.items.findIndex((item) => item.id == id);
+      const index = state.items.findIndex((item) => item._id == id);
       if (index > -1) {
         state.items.splice(index, 1);
       }
@@ -95,7 +95,10 @@ export const itemSlice = createSlice({
     });
     builder.addCase(updateItemAsync.fulfilled, (state, action) => {
       const updatedItem = action.payload;
-      const index = state.items.findIndex((item) => item.id === updatedItem.id);
+      console.error(state.items);
+      const index = state.items.findIndex(
+        (item) => item._id === updatedItem._id
+      );
       if (index !== -1) {
         state.items[index] = updatedItem;
       }
