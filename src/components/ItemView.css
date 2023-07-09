@@ -40,6 +40,12 @@ li {
     justify-content: space-evenly;
     align-items: center;
 }
+.manufacturer_details{
+    display: flex;
+}
+.manufacturer_account{
+    padding-left: 0.4rem;
+}
 @media (max-width:504px) {
 
     .modal_content {

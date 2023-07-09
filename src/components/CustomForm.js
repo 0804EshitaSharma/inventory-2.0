@@ -18,8 +18,7 @@ function CustomForm() {
 
   const formSubmit = (event) => {
     event = {
-      ...event,
-      id: uuidv4(),
+      ...event
     };
     dispatch(addItemAsync(event));
     reset();
@@ -78,6 +77,14 @@ function CustomForm() {
           label="Item Category:"
           register={{ ...register("category", { required: true }) }}
           categories={categories}
+        />
+        <FormInput
+          id="manufacturer"
+          name="manufacturer"
+          type="text"
+          placeholder="Item Manufacturer"
+          label="Item Manufacturer:"
+          register={{ ...register("manufacturer", { required: true }) }}
         />
         <div className="button_container">
           <Button type="submit" label="Add" event={handleSubmit(formSubmit)} />

@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import Item from "./Item.js";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "./Navbar.js";
-import Button from "./Button";
 import "./Home.css";
 import { selectAllItems, getItemsAsync } from "../redux/ItemSlice.js";
 
 function Home() {
-  const dispatch = useDispatch();
   const products = useSelector(selectAllItems);
+  const dispatch = useDispatch();
   const filteredproducts = useSelector((state) => state.items.filteredItems);
   const [isVisible, setIsVisible] = useState(true);
   /* Learned concept from https://www.youtube.com/watch?v=0W6i5LYKCSI */
@@ -22,22 +21,25 @@ function Home() {
     dispatch(getItemsAsync());
   }, [dispatch]);
 
-  const listItems = products.map((product) => (
+  const listItems = products.map((product, index) => (
     <Item
-      key={product._id}
+      key={product._id + index}
       id={product._id}
       name={product.name}
       price={product.price}
       description={product.description}
+      manufacturer={product.manufacturer}
       url={product.url}
     />
   ));
-  const filteredListItems = filteredproducts.map((product) => (
+  const filteredListItems = filteredproducts.map((product, index) => (
     <Item
-      key={product._id}
+      key={product._id + index}
+      id={product._id}
       name={product.name}
       price={product.price}
       description={product.description}
+      manufacturer={product.manufacturer}
       url={product.url}
     />
   ));

@@ -13,6 +13,17 @@ export const getItemsAsync = createAsyncThunk(
     }
   }
 );
+export const getItemsByManufacturerAsync = createAsyncThunk(
+  "items/getItemsByManufacturerAsync",
+  async (name) => {
+    const response = await fetch(`/${name}`);
+
+    if (response.ok) {
+      const items = await response.json();
+      return items;
+    }
+  }
+);
 
 export const filterItemsAsync = createAsyncThunk(
   "items/filterItemsAsync",
@@ -60,6 +71,7 @@ export const itemSlice = createSlice({
   initialState: {
     items: [],
     filteredItems: [],
+    selectedItems: []
   },
   reducers: {
     addItem: (state, action) => {
@@ -95,7 +107,6 @@ export const itemSlice = createSlice({
     });
     builder.addCase(updateItemAsync.fulfilled, (state, action) => {
       const updatedItem = action.payload;
-      console.error(state.items);
       const index = state.items.findIndex(
         (item) => item._id === updatedItem._id
       );
@@ -108,6 +119,9 @@ export const itemSlice = createSlice({
     });
     builder.addCase(searchItemsAsync.fulfilled, (state, action) => {
       state.filteredItems = action.payload;
+    });
+    builder.addCase(getItemsByManufacturerAsync.fulfilled, (state, action) => {
+      state.selectedItems = action.payload;
     });
   },
 });
@@ -122,4 +136,5 @@ export const {
 } = itemSlice.actions;
 
 export const selectAllItems = (state) => state.items.items;
+export const selectedAllItems = (state) => state.items.selectedItems;
 export default itemSlice.reducer;

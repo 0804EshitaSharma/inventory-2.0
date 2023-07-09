@@ -2,8 +2,8 @@ import React from "react";
 
 function CustomList({ heading, items }) {
   /* Learned From https://react.dev/learn */
-  const list = items.map((item) => (
-    <li key={item.id}>
+  const list = items.map((item,index) => (
+    <li key={index}>
      {item.text}
     </li>
   ));

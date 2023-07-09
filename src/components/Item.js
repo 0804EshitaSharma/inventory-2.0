@@ -6,7 +6,7 @@ import ImageContainer from "./ImageContainer";
 import { deleteItemAsync } from "../redux/ItemSlice.js";
 import "./Item.css";
 
-function Item({ id, name, url, price, description }) {
+function Item({ id, name, url, price, description, manufacturer }) {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const onDeleteItem = () => {
@@ -48,6 +48,7 @@ function Item({ id, name, url, price, description }) {
           id={id}
           price={price}
           description={description}
+          manufacturer={manufacturer}
           event={closeModal}
         />
       )}

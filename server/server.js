@@ -2,7 +2,7 @@ var express = require("express");
 require("dotenv").config();
 var cors = require("cors");
 const Products = require("./database/models/schemas");
-
+const Manufacturers = require("./database/models/manufacturer");
 const MONGO_URI =
   "mongodb+srv://essharma:VVltCrH8ci7KSmtB@products.0dwqezb.mongodb.net/?retryWrites=true&w=majority";
 var mongoose = require("mongoose");
@@ -126,6 +126,14 @@ app.post("/add", async function (req, res, next) {
   const newProduct = req.body;
   try {
     const product = await Products.create(newProduct);
+    if (product) {
+      await Manufacturers.findOneAndUpdate(
+        { name: product.manufacturer },
+        { $addToSet: { items: product._id } },
+        { upsert: true }
+      );
+    }
+
     res.status(201).send(product);
   } catch (e) {
     res.status(500);
@@ -138,8 +146,23 @@ app.delete("/item/:itemId", async function (req, res, next) {
     const productToDelete = await Products.findOneAndDelete({
       _id: req.params.itemId,
     });
-    console.error(productToDelete._id);
-    res.status(200).send(productToDelete._id);
+    if (productToDelete) {
+      console.error(productToDelete);
+      try {
+        await Manufacturers.updateMany(
+          {},
+          { $pull: { items: productToDelete._id } }
+        );
+      } catch (error) {
+        console.error("Error updating items:", error);
+        // Handle the error appropriately
+      }
+      res
+        .status(200)
+        .json({ message: "Product deleted", deletedProduct: productToDelete });
+    } else {
+      res.status(404).json({ message: "Product not found" });
+    }
   } catch (e) {
     res.status(500);
   }
@@ -162,6 +185,29 @@ app.patch("/update/:itemId", async function (req, res, next) {
     res.status(200).json(updatedItem);
   } catch (e) {
     res.status(500).json({ error: e.message });
+  }
+});
+
+/* GET all products by manufacturer. */
+app.get("/:manufacturer", async function (req, res, next) {
+  try {
+    const manufacturer = await Manufacturers.findOne({
+      name: req.params.manufacturer,
+    });
+    if (manufacturer.items) {
+      try {
+        const matchedItems = await Products.find({
+          _id: { $in: manufacturer.items },
+        });
+        res.status(200).send(matchedItems);
+      } catch (e) {
+        res.status(500).send(e);
+      }
+    } else {
+      res.status(404).json({ message: "Manufacturer not found" });
+    }
+  } catch (e) {
+    res.status(500).send(e);
   }
 });
 
