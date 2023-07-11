@@ -1,6 +1,6 @@
 var express = require("express");
-require("dotenv").config();
 var cors = require("cors");
+/* Referred from https://www.youtube.com/watch?v=Bxagh8EG-ak */
 const Products = require("./database/models/schemas");
 const Manufacturers = require("./database/models/manufacturer");
 const MONGO_URI =
@@ -20,63 +20,6 @@ mongoose
   .then(() => console.log("MongoDB Database connected"))
   .catch((error) => console.log(error));
 
-// var items = [
-//   {
-//     id: "1",
-//     name: "Mackbook Pro",
-//     price: 1500,
-//     description:
-//       "MacBook Pro 2023 with mini-LED display.Go longer than ever with up to 18 hours of battery life.It has 8GB of unified memory makes your entire system speedy and responsive.",
-//     url: "https://m.media-amazon.com/images/I/61vhiiYIXxL._AC_SX679_.jpg",
-//     category: "Electronics",
-//   },
-//   {
-//     id: "2",
-//     name: "Vegetables",
-//     price: 20,
-//     description:
-//       "Vegetables are the leaves, stems, roots, or other parts of certain plants that people eat. Vegetables usually come from herbaceous plants. Herbaceous plants have stems that are softer than the woody stems of bushes and trees. Many vegetables grow aboveground",
-//     url: "https://th.bing.com/th/id/OIP.M3ohwnP9mPl7cwNPy5cJcwHaE8?pid=ImgDet&rs=1",
-//     category: "Groceries",
-//   },
-//   {
-//     id: "3",
-//     name: "Airpods Pro",
-//     price: 250,
-//     description:
-//       "These Airpods have Active Noise Cancellation blocks outside noise, so you can immerse yourself in music and Transparency mode for hearing and interacting with the world around you",
-//     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBiHnyjd-aCFUP_m8ZvsTE52LjS4tirQPQUA&usqp=CAU",
-//     category: "Electronics",
-//   },
-//   {
-//     id: "4",
-//     name: "Calculator",
-//     price: 10,
-//     description:
-//       "This Calculator comes wth attached hard cover for extra protection and durability and with 120 steps check function",
-//     url: "https://m.media-amazon.com/images/I/616Kmv5LvdL._AC_UL640_FMwebp_QL65_.jpg",
-//     category: "Electronics",
-//   },
-//   {
-//     id: "5",
-//     name: "Maybelline Mascara",
-//     price: 40,
-//     description:
-//       "It is Easy to apply mascara that provides curled and volumized lashes",
-//     url: "https://m.media-amazon.com/images/I/51pQmQhAm0L._AC_UL800_FMwebp_QL65_.jpg",
-//     category: "Cosmetics",
-//   },
-//   {
-//     id: "6",
-//     name: "Fruits",
-//     price: 20,
-//     description:
-//       "Fruit provides many essential nutrients that often are underconsumed, including vitamins C and A and folate, as well as potassium and dietary fiber. Eating more fiber-rich, low-calorie fresh fruit in place of higher-calorie foods can help decrease your overall calorie intake",
-//     url: "https://beef2live.com/images/668/author/1764/2021/4/images/ranking_countries_produce_fresh_fruit_1_637540433636851364_1440.jpg",
-//     category: "Groceries",
-//   },
-// ];
-
 /* Learned from Workshop3* /
 /* GET items listing. */
 app.get("/items", async (req, res) => {
@@ -84,7 +27,7 @@ app.get("/items", async (req, res) => {
     const allProducts = await Products.find();
     res.status(201).send(allProducts);
   } catch (e) {
-    res.status(500);
+    res.status(500).json({ error: e.message });
   }
 });
 /* GET item by id listing. */
@@ -93,11 +36,12 @@ app.get("/item/:itemId", async function (req, res, next) {
     const matchedItem = await Products.find({ _id: req.params.itemId });
     res.status(200).send(matchedItem);
   } catch (e) {
-    res.status(500);
+    res.status(500).json({ error: e.message });
   }
 });
 
 // /* GET items by substring listing. */
+/* Referred from https://www.mongodb.com/docs/v6.0/reference/operator/aggregation/regexMatch/ and ChatGPT*/
 app.get("/search/:query", async function (req, res, next) {
   try {
     const matchedItems = await Products.find({
@@ -105,7 +49,7 @@ app.get("/search/:query", async function (req, res, next) {
     });
     res.status(200).send(matchedItems);
   } catch (e) {
-    res.status(500);
+    res.status(500).json({ error: e.message });
   }
 });
 
@@ -117,11 +61,12 @@ app.get("/filter/:itemCategory", async function (req, res, next) {
     });
     res.status(200).send(filteredItems);
   } catch (e) {
-    res.status(500);
+    res.status(500).json({ error: e.message });
   }
 });
 
 /* POST new itemlisting. */
+/*Referred from https://mongoosejs.com/docs/api/model.html#Model.create()  and ChatGPT */
 app.post("/add", async function (req, res, next) {
   const newProduct = req.body;
   try {
@@ -136,39 +81,39 @@ app.post("/add", async function (req, res, next) {
 
     res.status(201).send(product);
   } catch (e) {
-    res.status(500);
+    res.status(500).json({ error: e.message });
   }
 });
 
 /* DELETE item by id . */
+/*Referred from https://www.youtube.com/watch?v=CG_nh3vJ1Yo and https://www.mongodb.com/docs/v6.0/reference/operator/update/pull/ and ChatGPT */
 app.delete("/item/:itemId", async function (req, res, next) {
   try {
     const productToDelete = await Products.findOneAndDelete({
       _id: req.params.itemId,
     });
     if (productToDelete) {
-      console.error(productToDelete);
       try {
         await Manufacturers.updateMany(
           {},
           { $pull: { items: productToDelete._id } }
         );
       } catch (error) {
-        console.error("Error updating items:", error);
-        // Handle the error appropriately
+        res.status(500).json({ error: e.message });
       }
       res
         .status(200)
-        .json({ message: "Product deleted", deletedProduct: productToDelete });
+        .json({ message: "Product deleted Successfully"});
     } else {
       res.status(404).json({ message: "Product not found" });
     }
   } catch (e) {
-    res.status(500);
+    res.status(500).json({ error: e.message });
   }
 });
 
 /* UPDATE itemlisting. */
+/* Referred from https://www.mongodb.com/docs/v6.0/reference/method/db.collection.findOneAndUpdate/ and https://www.mongodb.com/docs/v6.0/reference/operator/update/set/ and ChatGpt */
 app.patch("/update/:itemId", async function (req, res, next) {
   try {
     const updatedItem = await Products.findOneAndUpdate(
@@ -201,13 +146,13 @@ app.get("/:manufacturer", async function (req, res, next) {
         });
         res.status(200).send(matchedItems);
       } catch (e) {
-        res.status(500).send(e);
+        res.status(500).json({ error: e.message });
       }
     } else {
-      res.status(404).json({ message: "Manufacturer not found" });
+      res.status(404).json({ message: "Items not found" });
     }
   } catch (e) {
-    res.status(500).send(e);
+    res.status(500).json({ error: e.message });
   }
 });
 

@@ -1,6 +1,7 @@
 import React from "react";
 import "./CustomTable.css";
 
+/* Referred from https://www.w3schools.com/html/html_tables.asp */
 function CustomTable({ manufacturedProducts }) {
   return (
     <>
