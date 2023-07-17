@@ -4,7 +4,11 @@ const app = express();
 var cors = require("cors");
 require("dotenv").config();
 app.use(express.json());
-app.use(cors());
+
+const corsOption = {
+  origin: "https://inventory-2-0-backend.onrender.com",
+};
+app.use(cors(corsOption));
 /* Referred from https://www.youtube.com/watch?v=Bxagh8EG-ak */
 const Products = require("./database/models/schemas");
 const Manufacturers = require("./database/models/manufacturer");
