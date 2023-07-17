@@ -1,23 +1,22 @@
 var express = require("express");
+var mongoose = require("mongoose");
+const app = express();
 var cors = require("cors");
+require("dotenv").config();
+app.use(express.json());
+app.use(cors());
 /* Referred from https://www.youtube.com/watch?v=Bxagh8EG-ak */
 const Products = require("./database/models/schemas");
 const Manufacturers = require("./database/models/manufacturer");
-const MONGO_URI =
-  "mongodb+srv://essharma:VVltCrH8ci7KSmtB@products.0dwqezb.mongodb.net/?retryWrites=true&w=majority";
-var mongoose = require("mongoose");
 
-const app = express();
-
-app.use(express.json());
-
-app.use(cors());
 mongoose
-  .connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    const PORT = process.env.PORT || 9000;
+    app.listen(PORT, () => {
+      console.log(`Successfully listening to Port ${PORT}`);
+    });
   })
-  .then(() => console.log("MongoDB Database connected"))
   .catch((error) => console.log(error));
 
 /* Learned from Workshop3* /
@@ -101,9 +100,7 @@ app.delete("/item/:itemId", async function (req, res, next) {
       } catch (error) {
         res.status(500).json({ error: e.message });
       }
-      res
-        .status(200)
-        .json({ message: "Product deleted Successfully"});
+      res.status(200).json({ message: "Product deleted Successfully" });
     } else {
       res.status(404).json({ message: "Product not found" });
     }
@@ -154,8 +151,4 @@ app.get("/:manufacturer", async function (req, res, next) {
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
-});
-
-app.listen(3001, () => {
-  console.log("Server Started");
 });
