@@ -3,12 +3,9 @@ var mongoose = require("mongoose");
 const app = express();
 var cors = require("cors");
 require("dotenv").config();
-app.use(express.json());
 
-const corsOption = {
-  origin: "https://inventory-2-0-backend.onrender.com",
-};
-app.use(cors(corsOption));
+app.use(express.json());
+app.use(cors());
 /* Referred from https://www.youtube.com/watch?v=Bxagh8EG-ak */
 const Products = require("./database/models/schemas");
 const Manufacturers = require("./database/models/manufacturer");
@@ -16,13 +13,16 @@ const Manufacturers = require("./database/models/manufacturer");
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    const PORT = process.env.PORT || 9000;
+    const PORT = process.env.PORT || 8000;
     app.listen(PORT, () => {
-      console.log(`Successfully listening to Port ${PORT}`);
+      console.log(`App is listening on Port ${PORT}`);
     });
   })
   .catch((error) => console.log(error));
 
+app.get("/", async (req, res) => {
+  res.status(201).json({ message: "Connected to Backend!" });
+});
 /* Learned from Workshop3* /
 /* GET items listing. */
 app.get("/items", async (req, res) => {
