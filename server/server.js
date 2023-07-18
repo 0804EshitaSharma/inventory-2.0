@@ -6,7 +6,7 @@ require("dotenv").config();
 app.use(express.json());
 
 const corsOption = {
-  origin: "https://inventory-2-0-backend.onrender.com",
+  origin: "https://inventory-2-0-front-ent.onrender.com",
 };
 app.use(cors(corsOption));
 /* Referred from https://www.youtube.com/watch?v=Bxagh8EG-ak */
