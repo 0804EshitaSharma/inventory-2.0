@@ -7,4 +7,8 @@ const ManufacturerSchema = new Schema({
   items: { type: Array },
 });
 
-module.exports = mongoose.model("manufacturers", ManufacturerSchema);
+const Manufacturer = mongoose.model(
+  "MANUFACTURER",
+  ManufacturerSchema
+);
+module.exports = Manufacturer;

@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const baseURL = "http://localhost:4000";
 /*Learned from https://www.youtube.com/watch?v=fiesH6WU63I */
 export const getItemsAsync = createAsyncThunk(
   "items/getItemsAsync",
   async () => {
-    const response = await fetch("/items");
+    const response = await fetch(`${baseURL}/items`);
 
     if (response.ok) {
       const items = await response.json();
@@ -16,7 +17,7 @@ export const getItemsAsync = createAsyncThunk(
 export const getItemsByManufacturerAsync = createAsyncThunk(
   "items/getItemsByManufacturerAsync",
   async (name) => {
-    const response = await fetch(`/${name}`);
+    const response = await fetch(`${baseURL}/${name}`);
 
     if (response.ok) {
       const items = await response.json();
@@ -28,14 +29,14 @@ export const getItemsByManufacturerAsync = createAsyncThunk(
 export const filterItemsAsync = createAsyncThunk(
   "items/filterItemsAsync",
   async (itemCategory) => {
-    const response = await fetch(`/filter/${itemCategory}`);
+    const response = await fetch(`${baseURL}/filter/${itemCategory}`);
     return response.json();
   }
 );
 export const searchItemsAsync = createAsyncThunk(
   "items/searchItemsAsync",
   async (query) => {
-    const response = await fetch(`/search/${query}`);
+    const response = await fetch(`${baseURL}/search/${query}`);
     return response.json();
   }
 );
@@ -43,7 +44,7 @@ export const searchItemsAsync = createAsyncThunk(
 export const addItemAsync = createAsyncThunk(
   "items/addItemAsync",
   async (newItem) => {
-    const response = await axios.post("/add", newItem);
+    const response = await axios.post(`${baseURL}/add`, newItem);
     return response.data;
   }
 );
@@ -52,7 +53,7 @@ export const updateItemAsync = createAsyncThunk(
   "items/updateItemAsync",
   async (updatedItem) => {
     const response = await axios.patch(
-      `/update/${updatedItem.id}`,
+      `${baseURL}/update/${updatedItem.id}`,
       updatedItem.data
     );
     return response.data;
@@ -61,7 +62,7 @@ export const updateItemAsync = createAsyncThunk(
 export const deleteItemAsync = createAsyncThunk(
   "items/deleteItemAsync",
   async (id) => {
-    const response = await axios.delete(`/item/${id}`);
+    const response = await axios.delete(`${baseURL}/item/${id}`);
     return id;
   }
 );
