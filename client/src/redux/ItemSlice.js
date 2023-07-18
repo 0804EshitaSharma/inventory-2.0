@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const baseURL = "http://localhost:4000";
+const baseURL = "https://inventory-2-0-backend.onrender.com";
 /*Learned from https://www.youtube.com/watch?v=fiesH6WU63I */
 export const getItemsAsync = createAsyncThunk(
   "items/getItemsAsync",
