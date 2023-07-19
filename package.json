@@ -9,7 +9,7 @@
     "install-client": "cd client && npm install",
     "build-client": "cd client && npm run build",
     "start-client": "cd client && npm run start",
-    "test": "cd client && npm run test"
+    "test": "npm run test"
   },
   "keywords": [],
   "author": "",
