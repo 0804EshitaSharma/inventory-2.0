@@ -3,7 +3,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter, useNavigate } from "react-router-dom";
 import configureStore from "redux-mock-store"; //ES6 modules
-import CustomForm from "./CustomForm";
+import CustomForm from "../components/CustomForm";
 const middlewares = [];
 const mockStore = configureStore(middlewares);
 describe("CustomForm", () => {
