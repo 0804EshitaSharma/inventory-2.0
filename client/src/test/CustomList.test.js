@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import CustomList from "./CustomList";
+import CustomList from "../components/CustomList";
 
 test("CustomList", () => {
   const heading = "Features";

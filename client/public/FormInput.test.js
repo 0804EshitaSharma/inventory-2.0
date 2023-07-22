@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, userEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import FormInput from "./FormInput";
+import FormInput from "../src/components/FormInput";
 
 test("FormInput", async () => {
   const id = "name";
