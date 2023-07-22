@@ -74,7 +74,6 @@ describe("Server tests", () => {
 
     expect(response.statusCode).toBe(201);
     expect(response.body.price).toBe(20);
-
     const deleteResponse = await request(app)
       .patch(`/update/${response.body._id}`)
       .send({ price: 40, description: "It is very Tasty" });
