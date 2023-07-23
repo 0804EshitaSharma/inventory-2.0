@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { filterItemsAsync } from "../redux/ItemSlice";
 import Modal from "./Modal";
 import CustomSelect from "./CustomSelect";
+import { useNavigate } from "react-router-dom";
 
 function FilterCard() {
   const [showModal, setShowModal] = useState(false);
   const products = useSelector((state) => state.items.items);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const content = " No items found for the selected category! ";
   const heading = "Notification";
   const categories = [
@@ -18,7 +20,13 @@ function FilterCard() {
     { id: 4, text: "Cosmetics" },
   ];
   const filteredItems = (e) => {
-    dispatch(filterItemsAsync(e.target.value));
+    if (e.target.value === "Choose a Category----") {
+      dispatch(filterItemsAsync());
+      navigate("/");
+    } else {
+      dispatch(filterItemsAsync(e.target.value));
+      navigate("/");
+    }
   };
 
   const closeModal = () => {
