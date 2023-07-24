@@ -2,47 +2,49 @@ import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter, useNavigate } from "react-router-dom";
-import configureStore from "redux-mock-store"; //ES6 modules
+import configureStore from "redux-mock-store";
 import CustomForm from "../components/CustomForm";
 const middlewares = [];
 const mockStore = configureStore(middlewares);
-describe("CustomForm", () => {
-  var store 
-   beforeEach(() => {
+
+describe("should render form component properly", () => {
+  var store;
+
+  beforeEach(() => {
     store = mockStore({});
-     render(
-       <Provider store={store}>
-         <BrowserRouter>
-           <CustomForm />
-         </BrowserRouter>
-       </Provider>
-     );
+    render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <CustomForm />
+        </BrowserRouter>
+      </Provider>
+    );
   });
-  
-  it("renders all input fields correctly", () => {
+
+  it("should render all input fields properly", () => {
     expect(screen.getByLabelText(/Item Name/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Item Category/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Item Manufacturer/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Item Price/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Item Description/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Item Image/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Item Category/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Item Manufacturer/i)).toBeInTheDocument();
   });
-  it("clears the form when the 'Clear' button is clicked", () => {
-   
+
+  it("should clear all the input fields when clear button is clicked", () => {
     fireEvent.change(screen.getByLabelText(/Item Name/i), {
-      target: { value: "Test Item" },
+      target: { value: "Item" },
     });
     fireEvent.change(screen.getByLabelText(/Item Price/i), {
-      target: { value: "10" },
-    });
-    fireEvent.change(screen.getByLabelText(/Item Description/i), {
-      target: { value: "Test description" },
-    });
-    fireEvent.change(screen.getByLabelText(/Item Image/i), {
-      target: { value: "test-image.jpg" },
+      target: { value: "20" },
     });
     fireEvent.change(screen.getByLabelText(/Item Manufacturer/i), {
-      target: { value: "Test Manufacturer" },
+      target: { value: "Manufacturer" },
+    });
+    fireEvent.change(screen.getByLabelText(/Item Description/i), {
+      target: { value: "Description" },
+    });
+    fireEvent.change(screen.getByLabelText(/Item Image/i), {
+      target: { value: "image" },
     });
     fireEvent.click(screen.getByRole("button", { name: /Clear/i }));
     expect(screen.getByLabelText(/Item Name/i).value).toBe("");
