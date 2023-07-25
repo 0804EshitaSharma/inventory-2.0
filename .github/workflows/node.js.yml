@@ -24,8 +24,7 @@ jobs:
     - name: Installing Client Dependencies
       run: cd client && npm install
     - name: Client Tests
-      working-directory: client/ui
-      run: npm run test
+      run: cd client && npm run test
       
   server-test:
     name: Running Server Tests
