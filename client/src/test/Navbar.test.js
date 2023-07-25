@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 const middlewares = [];
 const mockStore = configureStore(middlewares);
-
+/* Referred from https://testing-library.com/docs/queries/about , https://www.youtube.com/watch?v=6wbnwsKrnYU and ChatGPT*/
 test("should render Navbar component properly", () => {
   const initialState = {
     items: { items: [] },

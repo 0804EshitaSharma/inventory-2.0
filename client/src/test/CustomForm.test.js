@@ -6,7 +6,7 @@ import configureStore from "redux-mock-store";
 import CustomForm from "../components/CustomForm";
 const middlewares = [];
 const mockStore = configureStore(middlewares);
-
+/* Referred from https://testing-library.com/docs/queries/about , https://www.youtube.com/watch?v=6wbnwsKrnYU and ChatGPT*/
 describe("should render form component properly", () => {
   var store;
 

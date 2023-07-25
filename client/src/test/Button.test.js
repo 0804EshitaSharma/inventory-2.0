@@ -3,7 +3,7 @@ import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Button from "../components/Button";
 
-/* Referred from https://testing-library.com/docs/queries/about */
+/* Referred from https://testing-library.com/docs/queries/about , https://www.youtube.com/watch?v=6wbnwsKrnYU and ChatGPT*/
 
 test("should render button component properly", () => {
   const type = "submit";
