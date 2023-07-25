@@ -1,8 +1,7 @@
 const request = require("supertest");
 const app = require("./server.js");
-
+/* Reference from https://www.youtube.com/watch?v=FKnzS_icp20 */
 describe("Server tests", () => {
-
   it("should be able to successfully connect to the database", async () => {
     const response = await request(app).get("/");
     expect(response.statusCode).toBe(201);
@@ -56,7 +55,7 @@ describe("Server tests", () => {
       expect(item.category).toBe("Groceries");
     });
   });
-  
+
   it("should be able to fetch all items manufactured by Zain ", async () => {
     const response = await request(app).get("/Zain");
     expect(response.statusCode).toBe(200);
