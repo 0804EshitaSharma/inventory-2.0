@@ -11,7 +11,7 @@ describe("should go to inventory website and perform some operations", () => {
   beforeAll(async () => {
     browser = await puppeteer.launch({ headless: false });
     page = await browser.newPage();
-    await page.goto("http://localhost:3000/", {
+    await page.goto("https://inventory-2-0-frontend.onrender.com/", {
       waitUntil: "load",
     });
   });
