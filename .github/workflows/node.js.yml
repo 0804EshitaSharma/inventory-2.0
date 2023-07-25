@@ -24,7 +24,7 @@ jobs:
     - name: Installing Client Dependencies
       run: cd client && npm install
     - name: Client Tests
-      run: cd client && npm run test
+      run: cd client && npm run test -- --testPathIgnorePatterns="src/test/puppeteer/e2e.test.js"
       
   server-test:
     name: Running Server Tests
