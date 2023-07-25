@@ -1,9 +1,9 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import FormTextArea from "../../src/components/FormTextArea";
-
-test("FormTextArea", () => {
+/* Referred from https://testing-library.com/docs/queries/about , https://www.youtube.com/watch?v=6wbnwsKrnYU and ChatGPT*/
+test("should render form text area component properly", () => {
   const id = "text-area";
   const name = "text-area";
   const placeholder = "Enter Description";
@@ -21,7 +21,12 @@ test("FormTextArea", () => {
     />
   );
 
-  const customFormTextAreaElement = getByRole("textbox");
-  expect(customFormTextAreaElement).toBeInTheDocument();
-  expect(customFormTextAreaElement).toHaveAttribute("rows", rows);
+  const customFormTextArea = getByRole("textbox");
+  expect(customFormTextArea).toBeInTheDocument();
+  expect(customFormTextArea).toHaveAttribute("rows", rows);
+  expect(customFormTextArea).toHaveAttribute("cols", cols);
+  fireEvent.change(customFormTextArea, {
+    target: { value: "Item Description" },
+  });
+  expect(customFormTextArea).toHaveValue("Item Description");
 });
